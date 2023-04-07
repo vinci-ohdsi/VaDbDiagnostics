@@ -1,0 +1,13 @@
+Package: VaDbDiagnostics
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Marc Suchard [aut, cre]
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Depends:
+    R (>= 4.0),
+    DbDiagnostics
+Encoding: UTF-8
