@@ -1,0 +1,36 @@
+Package: Eunomia
+Type: Package
+Title: A Standard Dataset in the OMOP Common Data Model
+Version: 1.0.2
+Date: 2022-03-25
+Authors@R: c(
+  person("Frank", "DeFalco", , "fdefalco@ohdsi.org", role = c("aut", "cre")),
+  person("Martijn", "Schuemie", , "schuemie@ohdsi.org", role = c("aut")),
+  person("Observational Health Data Science and Informatics", role = c("cph"))
+  )
+Maintainer: Frank DeFalco <fdefalco@ohdsi.org>
+Description: A sample dataset in the OMOP (Observational Medical Outcomes Partnership) Common Data Model (CDM) format. The CDM enables uniform storage of observational health care data, and is widely used for health care analytics. 'Eunomia' contains simulated data as well as a subset of the OMOP Vocabulary, and enables testing of additional packages and is used for educational and demonstration purposes.
+License: Apache License 2.0
+URL: https://github.com/OHDSI/Eunomia
+BugReports: https://github.com/OHDSI/Eunomia/issues
+Depends: DatabaseConnector (>= 2.2.0)
+Imports: SqlRender, RSQLite (> 2.1.1), readr
+Suggests: testthat
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
+Author: Frank DeFalco [aut, cre],
+  Martijn Schuemie [aut],
+  Observational Health Data Science and Informatics [cph]
+Built: R 4.0.3; ; 2023-04-07 23:23:59 UTC; windows
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: Eunomia
+RemoteUsername: ohdsi
+RemoteRef: HEAD
+RemoteSha: 1220fdbe550762ff131f66f05f74f2610a4e85ca
+GithubHost: api.github.com
+GithubRepo: Eunomia
+GithubUsername: ohdsi
+GithubRef: HEAD
+GithubSHA1: 1220fdbe550762ff131f66f05f74f2610a4e85ca

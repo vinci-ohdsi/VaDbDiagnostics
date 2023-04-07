@@ -1,0 +1,7 @@
+collectMetadata         collectMetadata
+createDataDiagnosticsSettings
+                        createDataDiagnosticsSettings
+createDataDiagnosticsSummary
+                        createDataDiagnosticsSummary
+executeDbDiagnostics    executeDbDiagnostics
+executeDbProfile        executeDbProfile

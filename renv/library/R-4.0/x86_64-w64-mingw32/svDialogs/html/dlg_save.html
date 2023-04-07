@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Modal dialog to select a file to save to.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dlg_save {svDialogs}"><tr><td>dlg_save {svDialogs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Modal dialog to select a file to save to.</h2>
+
+<h3>Description</h3>
+
+<p>Select an existing file, or create a new one to save data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dlg_save(
+  default = "untitled",
+  title = "Save file as",
+  filters = dlg_filters["All", ],
+  ...,
+  gui = .GUI
+)
+
+dlgSave(
+  default = "untitled",
+  title = "Save file as",
+  filters = dlg_filters["All", ],
+  ...,
+  gui = .GUI
+)
+
+## S3 method for class 'gui'
+dlg_save(default, title, filters = dlg_filters["All", ], ..., gui = .GUI)
+
+## S3 method for class 'textCLI'
+dlg_save(default, title, filters = dlg_filters["All", ], ..., gui = .GUI)
+
+## S3 method for class 'nativeGUI'
+dlg_save(
+  default,
+  title,
+  filters = dlg_filters["All", ],
+  rstudio = getOption("svDialogs.rstudio", TRUE),
+  ...,
+  gui = .GUI
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>default</code></td>
+<td>
+<p>The default file to start with (use <code style="white-space: pre;">/dir/*</code> or <code style="white-space: pre;">/dir/*.*</code> to
+start in a given directory, but without predefined name).</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>A title to display on top of the dialog box.</p>
+</td></tr>
+<tr valign="top"><td><code>filters</code></td>
+<td>
+<p>A specification of file filters as a <code>nx2</code> matrix, or a
+character string with even number of items. First items is the label, second
+one is the filter. See <code>dlg_filters</code> for examples. This is currently ignored
+on MacOS, since such kind of filter is defined differently there.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Pass further arguments to methods.</p>
+</td></tr>
+<tr valign="top"><td><code>gui</code></td>
+<td>
+<p>The modified 'gui' object is returned invisibly. The chosen file,
+or an empty string (if the &quot;cancel&quot; button was clicked or confirmation was
+cancelled) is placed in <code>gui$res</code> (see example). For existing files,
+confirmation is always asked!</p>
+</td></tr>
+<tr valign="top"><td><code>rstudio</code></td>
+<td>
+<p>Logical. Should 'RStudio' dialog boxes automatically be used
+if available? If <code>FALSE</code>, force using OS dialog boxes, but only in
+'RStudio Desktop' (ignored in 'RStudio Server'). Can be changed globally
+with <code>options(svDialogs.rstudio = TRUE|FALSE)</code>. <code>TRUE</code> by default.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>In case the file already exists, the user is prompted to confirm he
+wants to overwrite the existing file. If he clicks <code>'Cancel'</code>, then the
+return is an empty string. The 'RStudio' version of this dialog box currently
+ignores the <code style="white-space: pre;">filters =</code> argument.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="dlg_open.html">dlg_open()</a></code>, <code><a href="dlg_dir.html">dlg_dir()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# Choose one R filename to save some R script into it
+dlg_save(title = "Save R script to", filters = dlg_filters[c("R", "All"), ])$res
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>svDialogs</em> version 1.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

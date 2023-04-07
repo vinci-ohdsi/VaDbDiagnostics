@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Add cohort subset definition to a cohort definition set</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for addCohortSubsetDefinition {CohortGenerator}"><tr><td>addCohortSubsetDefinition {CohortGenerator}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Add cohort subset definition to a cohort definition set</h2>
+
+<h3>Description</h3>
+
+<p>Given a subset definition and cohort definition set, this function returns a modified cohortDefinitionSet
+That contains cohorts that's have parent's contained within the base cohortDefinitionSet
+</p>
+<p>Also adds the columns subsetParent and isSubset that denote if the cohort is a subset and what the parent definition
+is.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+addCohortSubsetDefinition(
+  cohortDefinitionSet,
+  cohortSubsetDefintion,
+  targetCohortIds = NULL,
+  overwriteExisting = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cohortDefinitionSet</code></td>
+<td>
+<p>data.frame that conforms to CohortDefinitionSet</p>
+</td></tr>
+<tr valign="top"><td><code>cohortSubsetDefintion</code></td>
+<td>
+<p>CohortSubsetDefinition instance</p>
+</td></tr>
+<tr valign="top"><td><code>targetCohortIds</code></td>
+<td>
+<p>Cohort ids to apply subset definition to. If not set, subset definition is applied
+to all base cohorts in set (i.e. those that are not defined by subsetOperators).
+Applying to cohorts that are already subsets is permitted, however, this should be
+done with care and identifiers must be specified manually</p>
+</td></tr>
+<tr valign="top"><td><code>overwriteExisting</code></td>
+<td>
+<p>Overwrite existing subset definition of the same definitionId if present</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>CohortGenerator</em> version 0.8.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.0.5",
+    "Version": "4.0.3",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -13,14 +13,14 @@
       "Package": "Achilles",
       "Version": "1.7",
       "Source": "GitHub",
-      "Remotes": "github::OHDSI/Castor",
       "RemoteType": "github",
+      "Remotes": "github::OHDSI/Castor",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "Achilles",
       "RemoteUsername": "ohdsi",
       "RemoteRef": "HEAD",
       "RemoteSha": "a9144b2f3119055b76dfe8e9d798654558127fe3",
-      "Hash": "9e248790f9082fae19af8a8fb23932de",
+      "Hash": "f51cfbd552d1b023ed60a52fd4c8ea7e",
       "Requirements": [
         "DatabaseConnector",
         "ParallelLogger",
@@ -37,14 +37,14 @@
       "Package": "CohortGenerator",
       "Version": "0.8.0",
       "Source": "GitHub",
-      "Remotes": "ohdsi/CirceR, ohdsi/Eunomia, ohdsi/ROhdsiWebApi",
       "RemoteType": "github",
+      "Remotes": "ohdsi/CirceR, ohdsi/Eunomia, ohdsi/ROhdsiWebApi",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "CohortGenerator",
       "RemoteUsername": "OHDSI",
       "RemoteRef": "HEAD",
       "RemoteSha": "30fe75d61cc8414f6021786502410fe7f66a3ac2",
-      "Hash": "77386c387906530c81c16ffd2ddd1845",
+      "Hash": "b63d35e1663052ba7485d86bfa7b5cf5",
       "Requirements": [
         "DatabaseConnector",
         "ParallelLogger",
@@ -74,14 +74,14 @@
       "Package": "DataQualityDashboard",
       "Version": "2.1.2",
       "Source": "GitHub",
-      "Remotes": "ohdsi/Eunomia",
       "RemoteType": "github",
+      "Remotes": "ohdsi/Eunomia",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "DataQualityDashboard",
       "RemoteUsername": "ohdsi",
       "RemoteRef": "HEAD",
       "RemoteSha": "1197d5d8287c35a5c3f71d010220959494a160d3",
-      "Hash": "ea1f0bdbc8db8fb9ffcced27ac97d10d",
+      "Hash": "1a8d059897ac659f4b8571c434ade5e4",
       "Requirements": [
         "DatabaseConnector",
         "ParallelLogger",
@@ -117,14 +117,14 @@
       "Package": "DbDiagnostics",
       "Version": "1.3.1",
       "Source": "GitHub",
-      "Remotes": "ohdsi/Eunomia, ohdsi/Achilles, ohdsi/DataQualityDashboard",
       "RemoteType": "github",
+      "Remotes": "ohdsi/Eunomia, ohdsi/Achilles, ohdsi/DataQualityDashboard",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "DbDiagnostics",
       "RemoteUsername": "OHDSI",
       "RemoteRef": "HEAD",
       "RemoteSha": "522ae9429b12fab4202f559b9de083efecb90bc1",
-      "Hash": "70880e4ae67ca7dcbd2c4aecb29d0728",
+      "Hash": "07dcec9e311e59c80165bea28de6e81f",
       "Requirements": [
         "Achilles",
         "CohortGenerator",
@@ -515,13 +515,14 @@
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.5.2",
+      "Version": "0.5.5",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "526c484233f42522278ab06fb185cb26",
+      "Hash": "ba0240784ad50a62165058a27459304a",
       "Requirements": [
         "base64enc",
         "digest",
+        "ellipsis",
         "fastmap",
         "rlang"
       ]

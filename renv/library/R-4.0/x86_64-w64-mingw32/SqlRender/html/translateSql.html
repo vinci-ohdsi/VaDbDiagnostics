@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Deprecated: Translates SQL from one dialect to another</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for translateSql {SqlRender}"><tr><td>translateSql {SqlRender}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Deprecated: Translates SQL from one dialect to another</h2>
+
+<h3>Description</h3>
+
+<p>This function has been deprecated. Use <code><a href="translate.html">translate</a></code> instead. This new function returns a
+character vector instead of a list.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+translateSql(sql = "", targetDialect, oracleTempSchema = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sql</code></td>
+<td>
+<p>The SQL to be translated</p>
+</td></tr>
+<tr valign="top"><td><code>targetDialect</code></td>
+<td>
+<p>The target dialect. Currently &quot;oracle&quot;, &quot;postgresql&quot;, &quot;pdw&quot;, &quot;impala&quot;,
+&quot;netezza&quot;, &quot;bigquery&quot;, &quot;snowflake&quot;, &quot;synapse&quot;, &quot;spark&quot;, and &quot;redshift&quot; are supported</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>A schema that can be used to create temp tables in when using Oracle or
+Impala.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list containing the following elements: </p>
+ <dl>
+<dt>originalSql</dt><dd><p>The original parameterized
+SQL code</p>
+</dd> <dt>sql</dt><dd><p>The translated SQL</p>
+</dd> </dl>
+
+
+<hr /><div style="text-align: center;">[Package <em>SqlRender</em> version 1.13.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

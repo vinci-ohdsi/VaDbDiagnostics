@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create Limit Subset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createLimitSubset {CohortGenerator}"><tr><td>createLimitSubset {CohortGenerator}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create Limit Subset</h2>
+
+<h3>Description</h3>
+
+<p>Subset cohorts using specified limit criteria
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createLimitSubset(
+  name = NULL,
+  priorTime = 0,
+  followUpTime = 0,
+  limitTo = "",
+  calendarStartDate = NULL,
+  calendarEndDate = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>Name of operation</p>
+</td></tr>
+<tr valign="top"><td><code>priorTime</code></td>
+<td>
+<p>Required prior observation window</p>
+</td></tr>
+<tr valign="top"><td><code>followUpTime</code></td>
+<td>
+<p>Required post observation window</p>
+</td></tr>
+<tr valign="top"><td><code>limitTo</code></td>
+<td>
+<p>character one of:
+&quot;firstEver&quot; - only first entry in patient history
+&quot;earliestRemaining&quot; - only first entry after washout set by priorTime
+&quot;latestRemaining&quot; -  the latest remaining after washout set by followUpTime
+&quot;lastEver&quot; - only last entry in patient history inside
+</p>
+<p>Note, when using firstEver and lastEver with follow up and washout, patients with events
+outside this will be censored. The &quot;firstEver&quot; and &quot;lastEver&quot; are applied first.
+The &quot;earliestRemaining&quot; and &quot;latestRemaining&quot; are applied after all other limit
+criteria are applied (i.e. after applying prior/post time and calendar time).</p>
+</td></tr>
+<tr valign="top"><td><code>calendarStartDate</code></td>
+<td>
+<p>End date to allow periods (e.g. 2020/1/1/)</p>
+</td></tr>
+<tr valign="top"><td><code>calendarEndDate</code></td>
+<td>
+<p>Start date to allow period (e.g. 2015/1/1)</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>CohortGenerator</em> version 0.8.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

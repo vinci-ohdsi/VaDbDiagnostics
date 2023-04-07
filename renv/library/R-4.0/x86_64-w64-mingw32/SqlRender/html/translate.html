@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Translates SQL from one dialect to another</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for translate {SqlRender}"><tr><td>translate {SqlRender}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Translates SQL from one dialect to another</h2>
+
+<h3>Description</h3>
+
+<p><code>translate</code> translates SQL from one dialect to another.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+translate(
+  sql,
+  targetDialect,
+  tempEmulationSchema = getOption("sqlRenderTempEmulationSchema"),
+  oracleTempSchema = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sql</code></td>
+<td>
+<p>The SQL to be translated</p>
+</td></tr>
+<tr valign="top"><td><code>targetDialect</code></td>
+<td>
+<p>The target dialect. Currently &quot;oracle&quot;, &quot;postgresql&quot;, &quot;pdw&quot;, &quot;impala&quot;,
+&quot;sqlite&quot;, &quot;sqlite extended&quot;, &quot;netezza&quot;, &quot;bigquery&quot;, &quot;snowflake&quot;, &quot;synapse&quot;, &quot;spark&quot;, and &quot;redshift&quot; are supported.
+Use <code><a href="listSupportedDialects.html">listSupportedDialects</a></code> to get the list of supported dialects.</p>
+</td></tr>
+<tr valign="top"><td><code>tempEmulationSchema</code></td>
+<td>
+<p>Some database platforms like Oracle and Impala do not truly support
+temp tables. To emulate temp tables, provide a schema with write
+privileges where temp tables can be created.</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>DEPRECATED: use <code>tempEmulationSchema</code> instead.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function takes SQL in one dialect and translates it into another. It uses simple pattern
+replacement, so its functionality is limited. Note that trailing semicolons are not removed for
+Oracle, which is required before sending a statement through JDBC. This will be done by
+<code><a href="splitSql.html">splitSql</a></code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character string containing the translated SQL.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+translate("USE my_schema;", targetDialect = "oracle")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>SqlRender</em> version 1.13.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

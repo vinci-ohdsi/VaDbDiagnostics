@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Modal dialog to select one or more items in a list.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dlg_list {svDialogs}"><tr><td>dlg_list {svDialogs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Modal dialog to select one or more items in a list.</h2>
+
+<h3>Description</h3>
+
+<p>Display a list and allow user to select either one, or multiple items in that
+list.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dlg_list(
+  choices,
+  preselect = NULL,
+  multiple = FALSE,
+  title = NULL,
+  ...,
+  gui = .GUI
+)
+
+dlgList(
+  choices,
+  preselect = NULL,
+  multiple = FALSE,
+  title = NULL,
+  ...,
+  gui = .GUI
+)
+
+## S3 method for class 'gui'
+dlg_list(
+  choices,
+  preselect = NULL,
+  multiple = FALSE,
+  title = NULL,
+  ...,
+  gui = .GUI
+)
+
+## S3 method for class 'textCLI'
+dlg_list(
+  choices,
+  preselect = NULL,
+  multiple = FALSE,
+  title = NULL,
+  ...,
+  gui = .GUI
+)
+
+## S3 method for class 'nativeGUI'
+dlg_list(
+  choices,
+  preselect = NULL,
+  multiple = FALSE,
+  title = NULL,
+  rstudio = getOption("svDialogs.rstudio", TRUE),
+  ...,
+  gui = .GUI
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>choices</code></td>
+<td>
+<p>The list of items. It is coerced to character strings.</p>
+</td></tr>
+<tr valign="top"><td><code>preselect</code></td>
+<td>
+<p>A list of preselections, or <code>NULL</code> (then, the first element
+is selected in the list). Preselections not in choices are tolerated (but
+they are ignored without warning or error).</p>
+</td></tr>
+<tr valign="top"><td><code>multiple</code></td>
+<td>
+<p>Is it a multiple selection dialog box?</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>The title of the dialog box, or <code>NULL</code> to use a default title
+instead.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Pass further arguments to methods.</p>
+</td></tr>
+<tr valign="top"><td><code>gui</code></td>
+<td>
+<p>The 'gui' object concerned by this dialog box.</p>
+</td></tr>
+<tr valign="top"><td><code>rstudio</code></td>
+<td>
+<p>Logical. Should 'RStudio' dialog boxes automatically be used
+if available? If <code>FALSE</code>, force using OS dialog boxes, but only in
+'RStudio Desktop' (ignored in 'RStudio Server'). Can be changed globally
+with <code>options(svDialogs.rstudio = TRUE|FALSE)</code>. <code>TRUE</code> by default.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The modified 'gui' object is returned invisibly. A list with selected
+items, or a character vector of length 0 if the dialog box was cancelled is
+available from <code>gui$res</code> (see examples).
+</p>
+
+
+<h3>Note</h3>
+
+<p>RStudio does not provide (yet) a graphical list selector (as of version
+1.1.447). Consequently, a Tk version is used (if 'tcltk' is available) for
+'RStudio Desktop' and a textual version at the R Console is used in the other
+cases, for <code>'nativeGUI'</code> as a temporary workaround (should be implemented in
+Shiny later on). Also note that the textual version only reports preselection
+when <code>multiple == TRUE</code>, and they are not used automatically if you do not
+respecify them in your feedback (limitation of
+<code>utils::select.list(graphics = FALSE)</code>).
+On MacOS, and outside of R(64).app, which has his own list selection dialog
+box, single and double quotes are temporarily replaced by their slanted
+versions (unicode characters u3032 and u2033, respectively) because the
+command that triggers the dialog box does not allow quotes inside strings.
+Regular quotes are reset on the output. This is the only hack we found that
+was working. Better solutions are welcome, of course!
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="dlg_form.html">dlg_form()</a></code>, <code><a href="dlg_input.html">dlg_input()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# Select one or several months
+res &lt;- dlg_list(month.name, multiple = TRUE)$res
+if (!length(res)) {
+  cat("You cancelled the choice\n")
+} else {
+  cat("You selected:\n")
+  print(res)
+}
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>svDialogs</em> version 1.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

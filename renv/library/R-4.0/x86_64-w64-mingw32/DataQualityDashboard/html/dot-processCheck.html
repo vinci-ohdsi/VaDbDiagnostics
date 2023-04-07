@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Internal function to send the fully qualified sql to the...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for .processCheck {DataQualityDashboard}"><tr><td>.processCheck {DataQualityDashboard}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Internal function to send the fully qualified sql to the database and return the numerical result.</h2>
+
+<h3>Description</h3>
+
+<p>Internal function to send the fully qualified sql to the database and return the numerical result.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+.processCheck(
+  connection,
+  connectionDetails,
+  check,
+  checkDescription,
+  sql,
+  outputFolder
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>A connection for connecting to the CDM database using the DatabaseConnector::connect(connectionDetails) function.</p>
+</td></tr>
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>A connectionDetails object for connecting to the CDM database.</p>
+</td></tr>
+<tr valign="top"><td><code>check</code></td>
+<td>
+<p>The data quality check</p>
+</td></tr>
+<tr valign="top"><td><code>checkDescription</code></td>
+<td>
+<p>The description of the data quality check</p>
+</td></tr>
+<tr valign="top"><td><code>sql</code></td>
+<td>
+<p>The fully qualified sql for the data quality check</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>The folder to output logs and SQL files to.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>DataQualityDashboard</em> version 2.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

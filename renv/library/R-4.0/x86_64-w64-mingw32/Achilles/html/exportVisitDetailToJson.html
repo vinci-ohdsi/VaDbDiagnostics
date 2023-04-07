@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: exportVisitDetailToJson</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for exportVisitDetailToJson {Achilles}"><tr><td>exportVisitDetailToJson {Achilles}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>exportVisitDetailToJson</h2>
+
+<h3>Description</h3>
+
+<p><code>exportVisitDetailToJson</code> Exports Achilles VISIT_DETAIL report into a JSON form for reports.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+exportVisitDetailToJson(
+  connectionDetails,
+  cdmDatabaseSchema,
+  resultsDatabaseSchema,
+  outputPath = getwd(),
+  vocabDatabaseSchema = cdmDatabaseSchema
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An R object of type ConnectionDetail (details for the function that
+contains server info, database type, optionally username/password,
+port)</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>Name of the database schema that contains the vocabulary files</p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>Name of the database schema that contains the Achilles analysis
+files. Default is cdmDatabaseSchema</p>
+</td></tr>
+<tr valign="top"><td><code>outputPath</code></td>
+<td>
+<p>folder location to save the JSON files. Default is current working
+folder</p>
+</td></tr>
+<tr valign="top"><td><code>vocabDatabaseSchema</code></td>
+<td>
+<p>name of database schema that contains OMOP Vocabulary. Default is
+cdmDatabaseSchema. On SQL Server, this should specifiy both the
+database and the schema, so for example 'results.dbo'.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates individual files for VISIT_DETAIL report found in Achilles.Web
+</p>
+
+
+<h3>Value</h3>
+
+<p>none
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connectionDetails &lt;- DatabaseConnector::createConnectionDetails(dbms = "sql server",
+                                                                server = "yourserver")
+exportVisitDetailToJson(connectionDetails,
+                        cdmDatabaseSchema = "cdm4_sim",
+                        outputPath = "your/output/path")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Achilles</em> version 1.7 <a href="00Index.html">Index</a>]</div>
+</body></html>

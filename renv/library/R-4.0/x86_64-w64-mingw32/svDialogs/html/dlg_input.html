@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Modal dialog to input a string or a value.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dlg_input {svDialogs}"><tr><td>dlg_input {svDialogs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Modal dialog to input a string or a value.</h2>
+
+<h3>Description</h3>
+
+<p>Prompt for some data in a modal dialog box.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dlg_input(message = "Enter a value", default = "", ..., gui = .GUI)
+
+dlgInput(message = "Enter a value", default = "", ..., gui = .GUI)
+
+## S3 method for class 'gui'
+dlg_input(message = "Enter a value", default = "", ..., gui = .GUI)
+
+## S3 method for class 'textCLI'
+dlg_input(message = "Enter a value", default = "", ..., gui = .GUI)
+
+## S3 method for class 'nativeGUI'
+dlg_input(
+  message = "Enter a value",
+  default = "",
+  rstudio = getOption("svDialogs.rstudio", TRUE),
+  ...,
+  gui = .GUI
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>message</code></td>
+<td>
+<p>The message to display in the dialog box. Use <code style="white-space: pre;">\\n</code> for
+line break, or provide a vector of character strings, one for each line.</p>
+</td></tr>
+<tr valign="top"><td><code>default</code></td>
+<td>
+<p>The default value in the text box. Single string or <code>NULL</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Pass further arguments to methods.</p>
+</td></tr>
+<tr valign="top"><td><code>gui</code></td>
+<td>
+<p>The 'gui' object concerned by this dialog box.</p>
+</td></tr>
+<tr valign="top"><td><code>rstudio</code></td>
+<td>
+<p>Logical. Should 'RStudio' dialog boxes automatically be used
+if available? If <code>FALSE</code>, force using OS dialog boxes, but only in
+'RStudio Desktop' (ignored in 'RStudio Server'). Can be changed globally
+with <code>options(svDialogs.rstudio = TRUE|FALSE)</code>. <code>TRUE</code> by default.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The modified 'gui' object is returned invisibly. The text entered by
+the user at the input box, or an empty string if the dialog box was cancelled
+can be obtained from <code>gui$res</code> (see example).
+</p>
+
+
+<h3>Note</h3>
+
+<p>The 'RStudio' version of this dialog box does not allow for an empty
+string. So, for better portability, try never to expect an empty string from
+the user (the <code>'Cancel'</code> button is there to dismiss the dialog box).
+On MacOS, single and double quotes are temporarily replaced by their slanted
+versions (unicode characters u3032 and u2033, respectively) because the
+command that triggers the dialog box does not allow quotes inside strings.
+Regular quotes are reset on the output. This is the only hack we found that
+was working. Better solutions are welcome!
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="dlg_list.html">dlg_list()</a></code>, <code><a href="dlg_form.html">dlg_form()</a></code>, <code><a href="dlg_message.html">dlg_message()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# Ask something...
+user &lt;- dlg_input("Who are you?", Sys.info()["user"])$res
+if (!length(user)) {# The user clicked the 'cancel' button
+  cat("OK, you prefer to stay anonymous!\n")
+} else {
+  cat("Hello", user, "\n")
+}
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>svDialogs</em> version 1.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

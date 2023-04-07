@@ -1,0 +1,48 @@
+Package: DataQualityDashboard
+Type: Package
+Title: Execute and View Data Quality Checks on OMOP CDM Database
+Version: 2.1.2
+Date: 2023-03-10
+Authors@R: c(
+  person("Katy", "Sadowski", email = "sadowski@ohdsi.org", role = c("aut", "cre")),
+  person("Clair", "Blacketer", role = c("aut")),
+  person("Ajit", "Londhe", role = c("aut")),
+  person("Anthony", "Sena", role = c("aut")),
+  person("Anthony", "Molinaro", role = c("aut")),
+  person("Frank", "DeFalco", role = c("aut")),
+  person("Pavel", "Grafkin", role = c("aut"))
+  )
+Maintainer: Katy Sadowski <sadowski@ohdsi.org>
+Description: An R package for assessing data quality in standardized OMOP Common Data Model data sources.
+License: Apache License (>= 2)
+VignetteBuilder: knitr
+URL: https://github.com/OHDSI/DataQualityDashboard
+BugReports: https://github.com/OHDSI/DataQualityDashboard/issues
+Depends: R (>= 3.2.2), DatabaseConnector (>= 2.0.2)
+Imports: magrittr, ParallelLogger, dplyr, jsonlite, rJava, SqlRender (>=
+    1.6.0), plyr, stringr, rlang, tidyselect
+Suggests: testthat, knitr, rmarkdown, markdown, shiny, ggplot2, Eunomia,
+    R.utils
+RoxygenNote: 7.2.2
+Encoding: UTF-8
+Author: Katy Sadowski [aut, cre],
+  Clair Blacketer [aut],
+  Ajit Londhe [aut],
+  Anthony Sena [aut],
+  Anthony Molinaro [aut],
+  Frank DeFalco [aut],
+  Pavel Grafkin [aut]
+Built: R 4.0.3; ; 2023-04-07 23:16:10 UTC; windows
+RemoteType: github
+Remotes: ohdsi/Eunomia
+RemoteHost: api.github.com
+RemoteRepo: DataQualityDashboard
+RemoteUsername: ohdsi
+RemoteRef: HEAD
+RemoteSha: 1197d5d8287c35a5c3f71d010220959494a160d3
+GithubHost: api.github.com
+GithubRepo: DataQualityDashboard
+GithubUsername: ohdsi
+GithubRef: HEAD
+GithubSHA1: 1197d5d8287c35a5c3f71d010220959494a160d3
+Remotes: ohdsi/Eunomia

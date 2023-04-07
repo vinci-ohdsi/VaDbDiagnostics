@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: executeDbDiagnostics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for executeDbDiagnostics {DbDiagnostics}"><tr><td>executeDbDiagnostics {DbDiagnostics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>executeDbDiagnostics</h2>
+
+<h3>Description</h3>
+
+<p>executeDbDiagnostics
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+executeDbDiagnostics(
+  connectionDetails,
+  resultsDatabaseSchema,
+  resultsTableName,
+  outputFolder = getwd(),
+  dataDiagnosticsSettingsList
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>A connectionDetails object for connecting to the database containing the DbProfile results</p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>The fully qualified database name of the results schema where the DbProfile results are housed. Default is &quot;dp_temp&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>resultsTableName</code></td>
+<td>
+<p>The name of the table in the results schema with the DbProfile results. Default is &quot;dp_achilles_results_augmented.&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>Results will be written to this directory, default = getwd()</p>
+</td></tr>
+<tr valign="top"><td><code>dataDiagnosticsSettingsList</code></td>
+<td>
+<p>A list of settings objects, each created from DataDiagnostics::createDataDiagnosticsSettings() function and each representing one analysis.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>DbDiagnostics</em> version 1.3.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

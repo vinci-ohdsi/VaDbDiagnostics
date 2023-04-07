@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Execute DQ checks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for executeDqChecks {DataQualityDashboard}"><tr><td>executeDqChecks {DataQualityDashboard}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Execute DQ checks</h2>
+
+<h3>Description</h3>
+
+<p>This function will connect to the database, generate the sql scripts, and run the data quality checks against the database.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+executeDqChecks(
+  connectionDetails,
+  cdmDatabaseSchema,
+  resultsDatabaseSchema,
+  vocabDatabaseSchema = cdmDatabaseSchema,
+  cdmSourceName,
+  numThreads = 1,
+  sqlOnly = FALSE,
+  outputFolder,
+  outputFile = "",
+  verboseMode = FALSE,
+  writeToTable = TRUE,
+  writeTableName = "dqdashboard_results",
+  writeToCsv = FALSE,
+  csvFile = "",
+  checkLevels = c("TABLE", "FIELD", "CONCEPT"),
+  checkNames = c(),
+  cohortDefinitionId = c(),
+  cohortDatabaseSchema = resultsDatabaseSchema,
+  tablesToExclude = c("CONCEPT", "VOCABULARY", "CONCEPT_ANCESTOR",
+    "CONCEPT_RELATIONSHIP", "CONCEPT_CLASS", "CONCEPT_SYNONYM", "RELATIONSHIP", "DOMAIN"),
+  cdmVersion = "5.3",
+  tableCheckThresholdLoc = "default",
+  fieldCheckThresholdLoc = "default",
+  conceptCheckThresholdLoc = "default"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>A connectionDetails object for connecting to the CDM database</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>The fully qualified database name of the CDM schema</p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>The fully qualified database name of the results schema</p>
+</td></tr>
+<tr valign="top"><td><code>vocabDatabaseSchema</code></td>
+<td>
+<p>The fully qualified database name of the vocabulary schema (default is to set it as the cdmDatabaseSchema)</p>
+</td></tr>
+<tr valign="top"><td><code>cdmSourceName</code></td>
+<td>
+<p>The name of the CDM data source</p>
+</td></tr>
+<tr valign="top"><td><code>numThreads</code></td>
+<td>
+<p>The number of concurrent threads to use to execute the queries</p>
+</td></tr>
+<tr valign="top"><td><code>sqlOnly</code></td>
+<td>
+<p>Should the SQLs be executed (FALSE) or just returned (TRUE)?</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>The folder to output logs, SQL files, and JSON results file to</p>
+</td></tr>
+<tr valign="top"><td><code>outputFile</code></td>
+<td>
+<p>(OPTIONAL) File to write results JSON object</p>
+</td></tr>
+<tr valign="top"><td><code>verboseMode</code></td>
+<td>
+<p>Boolean to determine if the console will show all execution steps. Default is FALSE</p>
+</td></tr>
+<tr valign="top"><td><code>writeToTable</code></td>
+<td>
+<p>Boolean to indicate if the check results will be written to the dqdashboard_results table in the resultsDatabaseSchema. Default is TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>writeTableName</code></td>
+<td>
+<p>The name of the results table. Defaults to 'dqdashboard_results'.</p>
+</td></tr>
+<tr valign="top"><td><code>writeToCsv</code></td>
+<td>
+<p>Boolean to indicate if the check results will be written to a csv file. Default is FALSE</p>
+</td></tr>
+<tr valign="top"><td><code>csvFile</code></td>
+<td>
+<p>(OPTIONAL) CSV file to write results</p>
+</td></tr>
+<tr valign="top"><td><code>checkLevels</code></td>
+<td>
+<p>Choose which DQ check levels to execute. Default is all 3 (TABLE, FIELD, CONCEPT)</p>
+</td></tr>
+<tr valign="top"><td><code>checkNames</code></td>
+<td>
+<p>(OPTIONAL) Choose which check names to execute. Names can be found in inst/csv/OMOP_CDM_v[cdmVersion]_Check_Descriptions.csv. Note that &quot;cdmTable&quot;, &quot;cdmField&quot; and &quot;measureValueCompleteness&quot; are always executed.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortDefinitionId</code></td>
+<td>
+<p>The cohort definition id for the cohort you wish to run the DQD on. The package assumes a standard OHDSI cohort table called 'Cohort'
+with the fields cohort_definition_id and subject_id.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortDatabaseSchema</code></td>
+<td>
+<p>The schema where the cohort table is located.</p>
+</td></tr>
+<tr valign="top"><td><code>tablesToExclude</code></td>
+<td>
+<p>(OPTIONAL) Choose which CDM tables to exclude from the execution.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmVersion</code></td>
+<td>
+<p>The CDM version to target for the data source. Options are &quot;5.2&quot;, &quot;5.3&quot;, or &quot;5.4&quot;. By default, &quot;5.3&quot; is used.</p>
+</td></tr>
+<tr valign="top"><td><code>tableCheckThresholdLoc</code></td>
+<td>
+<p>The location of the threshold file for evaluating the table checks. If not specified the default thresholds will be applied.</p>
+</td></tr>
+<tr valign="top"><td><code>fieldCheckThresholdLoc</code></td>
+<td>
+<p>The location of the threshold file for evaluating the field checks. If not specified the default thresholds will be applied.</p>
+</td></tr>
+<tr valign="top"><td><code>conceptCheckThresholdLoc</code></td>
+<td>
+<p>The location of the threshold file for evaluating the concept checks. If not specified the default thresholds will be applied.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>If sqlOnly = FALSE, a list object of results
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DataQualityDashboard</em> version 2.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

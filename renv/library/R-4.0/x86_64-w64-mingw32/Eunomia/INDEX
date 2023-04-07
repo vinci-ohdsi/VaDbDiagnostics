@@ -1,0 +1,4 @@
+createCohorts           Construct cohorts
+exportToCsv             Extract the Eunomia database to CSV files
+getEunomiaConnectionDetails
+                        Get Eunomia Connection Details

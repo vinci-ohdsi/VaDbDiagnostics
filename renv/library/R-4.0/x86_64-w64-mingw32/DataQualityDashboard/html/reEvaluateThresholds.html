@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Re-evaluate Thresholds</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for reEvaluateThresholds {DataQualityDashboard}"><tr><td>reEvaluateThresholds {DataQualityDashboard}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Re-evaluate Thresholds</h2>
+
+<h3>Description</h3>
+
+<p>Re-evaluate an existing DQD result against an updated thresholds file.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+reEvaluateThresholds(
+  jsonFilePath,
+  outputFolder,
+  outputFile,
+  tableCheckThresholdLoc = "default",
+  fieldCheckThresholdLoc = "default",
+  conceptCheckThresholdLoc = "default",
+  cdmVersion = "5.3"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>jsonFilePath</code></td>
+<td>
+<p>Path to the JSON results file generated using the execute function</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>The folder to output new JSON result file to</p>
+</td></tr>
+<tr valign="top"><td><code>outputFile</code></td>
+<td>
+<p>File to write results JSON object to</p>
+</td></tr>
+<tr valign="top"><td><code>tableCheckThresholdLoc</code></td>
+<td>
+<p>The location of the threshold file for evaluating the table checks. If not specified the default thresholds will be applied.</p>
+</td></tr>
+<tr valign="top"><td><code>fieldCheckThresholdLoc</code></td>
+<td>
+<p>The location of the threshold file for evaluating the field checks. If not specified the default thresholds will be applied.</p>
+</td></tr>
+<tr valign="top"><td><code>conceptCheckThresholdLoc</code></td>
+<td>
+<p>The location of the threshold file for evaluating the concept checks. If not specified the default thresholds will be applied.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmVersion</code></td>
+<td>
+<p>The CDM version to target for the data source. By default, 5.3 is used.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>DataQualityDashboard</em> version 2.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Find the prefix matches in a trie</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for prefix_match {triebeard}"><tr><td>prefix_match {triebeard}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Find the prefix matches in a trie</h2>
+
+<h3>Description</h3>
+
+<p><code>prefix_match</code> accepts a trie and a character vector
+and returns the values associated with any key that has a particular
+character vector entry as a prefix (see the examples).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+prefix_match(trie, to_match, include_keys = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>trie</code></td>
+<td>
+<p>a trie object, created with <code><a href="trie.html">trie</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>to_match</code></td>
+<td>
+<p>a character vector containing the strings to check against the
+trie's keys.</p>
+</td></tr>
+<tr valign="top"><td><code>include_keys</code></td>
+<td>
+<p>a logical value indicating whether to include the keys in the
+returned results or not. If TRUE (<em>not</em> the default) the returned object will
+be a list of data.frames, rather than of vector.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a list, the length of <code>to_match</code>, with each entry containing any trie values
+where the <code>to_match</code> element was a prefix of the associated key. In the case that
+nothing was found, the entry will contain <code>NA</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="longest_match.html">longest_match</a></code> and <code><a href="greedy_match.html">greedy_match</a></code>
+for longest and greedy matching, respectively.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+trie &lt;- trie(keys = c("afford", "affair", "available", "binary", "bind", "blind"),
+                   values = c("afford", "affair", "available", "binary", "bind", "blind"))
+prefix_match(trie, "aff")
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>triebeard</em> version 0.4.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

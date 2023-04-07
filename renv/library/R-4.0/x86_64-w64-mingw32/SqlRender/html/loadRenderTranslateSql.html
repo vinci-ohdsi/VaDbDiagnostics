@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Load, render, and translate a SQL file in a package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for loadRenderTranslateSql {SqlRender}"><tr><td>loadRenderTranslateSql {SqlRender}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Load, render, and translate a SQL file in a package</h2>
+
+<h3>Description</h3>
+
+<p><code>loadRenderTranslateSql</code> Loads a SQL file contained in a package, renders it and translates it
+to the specified dialect
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+loadRenderTranslateSql(
+  sqlFilename,
+  packageName,
+  dbms = "sql server",
+  ...,
+  tempEmulationSchema = getOption("sqlRenderTempEmulationSchema"),
+  oracleTempSchema = NULL,
+  warnOnMissingParameters = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sqlFilename</code></td>
+<td>
+<p>The source SQL file</p>
+</td></tr>
+<tr valign="top"><td><code>packageName</code></td>
+<td>
+<p>The name of the package that contains the SQL file</p>
+</td></tr>
+<tr valign="top"><td><code>dbms</code></td>
+<td>
+<p>The target dialect. Currently 'sql server', 'oracle', 'postgres',
+and 'redshift' are supported</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Parameter values used for <code>render</code></p>
+</td></tr>
+<tr valign="top"><td><code>tempEmulationSchema</code></td>
+<td>
+<p>Some database platforms like Oracle and Impala do not truly support
+temp tables. To emulate temp tables, provide a schema with write
+privileges where temp tables can be created.</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>DEPRECATED: use <code>tempEmulationSchema</code> instead.</p>
+</td></tr>
+<tr valign="top"><td><code>warnOnMissingParameters</code></td>
+<td>
+<p>Should a warning be raised when parameters provided to this
+function do not appear in the parameterized SQL that is being
+rendered? By default, this is TRUE.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function looks for a SQL file with the specified name in the inst/sql/&lt;dbms&gt; folder of the
+specified package. If it doesn't find it in that folder, it will try and load the file from the
+inst/sql/sql_server folder and use the <code>translate</code> function to translate it to the requested
+dialect. It will subsequently call the <code>render</code> function with any of the additional specified
+parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Returns a string containing the rendered SQL.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+renderedSql &lt;- loadRenderTranslateSql("CohortMethod.sql",
+  packageName = "CohortMethod",
+  dbms = connectionDetails$dbms,
+  CDM_schema = "cdmSchema"
+)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>SqlRender</em> version 1.13.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

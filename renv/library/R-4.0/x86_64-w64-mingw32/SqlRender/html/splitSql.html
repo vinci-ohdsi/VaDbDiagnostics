@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Split a single SQL string into one or more SQL statements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for splitSql {SqlRender}"><tr><td>splitSql {SqlRender}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Split a single SQL string into one or more SQL statements</h2>
+
+<h3>Description</h3>
+
+<p><code>splitSql</code> splits a string containing multiple SQL statements into a vector of SQL statements
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+splitSql(sql)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sql</code></td>
+<td>
+<p>The SQL string to split into separate statements</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is needed because some DBMSs (like ORACLE) do not accepts multiple SQL statements
+being sent as one execution.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector of strings, one for each SQL statement
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+splitSql("SELECT * INTO a FROM b; USE x; DROP TABLE c;")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>SqlRender</em> version 1.13.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

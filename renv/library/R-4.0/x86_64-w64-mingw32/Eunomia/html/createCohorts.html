@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Construct cohorts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createCohorts {Eunomia}"><tr><td>createCohorts {Eunomia}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Construct cohorts</h2>
+
+<h3>Description</h3>
+
+<p>Creates a set of predefined cohorts in a cohort table.
+WARNING: this will delete all existing cohorts in the table!
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createCohorts(
+  connectionDetails,
+  cdmDatabaseSchema = "main",
+  cohortDatabaseSchema = "main",
+  cohortTable = "cohort"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>The connection details to connect to the (Eunomia) database.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>The name of the database schema holding the CDM data.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortDatabaseSchema</code></td>
+<td>
+<p>The name of the database schema where the cohorts will be written.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortTable</code></td>
+<td>
+<p>The name of the table in the cohortDatabaseSchema where the cohorts
+will be written.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame listing all created cohorts.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+connectionDetails &lt;- getEunomiaConnectionDetails()
+createCohorts(connectionDetails)
+
+connection &lt;- connect(connectionDetails)
+
+sql &lt;- "SELECT COUNT(*)
+FROM main.cohort
+WHERE cohort_definition_id = 1;"
+
+renderTranslateQuerySql(connection, sql)
+
+disconnect(connection)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Eunomia</em> version 1.0.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

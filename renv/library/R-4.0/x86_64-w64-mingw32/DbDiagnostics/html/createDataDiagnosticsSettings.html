@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createDataDiagnosticsSettings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createDataDiagnosticsSettings {DbDiagnostics}"><tr><td>createDataDiagnosticsSettings {DbDiagnostics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createDataDiagnosticsSettings</h2>
+
+<h3>Description</h3>
+
+<p>createDataDiagnosticsSettings
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createDataDiagnosticsSettings(
+  analysisId,
+  analysisName = "analysis",
+  minAge = NULL,
+  maxAge = NULL,
+  genderConceptIds = c(8507, 8532),
+  raceConceptIds = NULL,
+  ethnicityConceptIds = NULL,
+  studyStartDate = NULL,
+  studyEndDate = NULL,
+  requiredDurationDays = 365,
+  requiredDomains = c("condition", "drug"),
+  desiredDomains = NULL,
+  requiredVisits = NULL,
+  desiredVisits = NULL,
+  targetName = "target",
+  targetConceptIds = NULL,
+  comparatorName = NULL,
+  comparatorConceptIds = NULL,
+  indicationName = NULL,
+  indicationConceptIds = NULL,
+  includeIndicationInCalc = F,
+  outcomeName = NULL,
+  outcomeConceptIds = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>analysisId</code></td>
+<td>
+<p>The identifier for the specific analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>analysisName</code></td>
+<td>
+<p>The name for the specific analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>minAge</code></td>
+<td>
+<p>The minimum age for patients included in the analysis.
+Default is the lowest age available in the database.</p>
+</td></tr>
+<tr valign="top"><td><code>maxAge</code></td>
+<td>
+<p>The minimum age for patients included in the analysis.
+Default is the highest age available in the database.</p>
+</td></tr>
+<tr valign="top"><td><code>genderConceptIds</code></td>
+<td>
+<p>The required sex(es) at birth for patients included in the analysis, expressed as a vector of concepts.
+List the standard OMOP concepts for the required values as found here (https://athena.ohdsi.org/search-terms/terms?domain=Gender&amp;standardConcept=Standard&amp;page=1&amp;pageSize=15&amp;query=).
+Default is c(8507, 8532) for male and female.</p>
+</td></tr>
+<tr valign="top"><td><code>raceConceptIds</code></td>
+<td>
+<p>The required races for patients included in the analysis, expressed as a vector of concepts, e.g. c(8515,8527).
+If no restriction leave blank, else list the standard OMOP concepts for the required values as found here (https://athena.ohdsi.org/search-terms/terms?domain=Race&amp;standardConcept=Standard&amp;page=1&amp;pageSize=15&amp;query=).</p>
+</td></tr>
+<tr valign="top"><td><code>ethnicityConceptIds</code></td>
+<td>
+<p>The required ethnicities for patients included in the analysis, expressed as a vector of concepts, e.g. c(38003564,38003563)
+If no restriction leave blank, else list the standard OMOP concepts for the required values as found here (https://athena.ohdsi.org/search-terms/terms?domain=Ethnicity&amp;standardConcept=Standard&amp;page=1&amp;pageSize=15&amp;query=).</p>
+</td></tr>
+<tr valign="top"><td><code>studyStartDate</code></td>
+<td>
+<p>The start date of the analysis. Date format it 'YYYYMM'. If no restriction leave blank.</p>
+</td></tr>
+<tr valign="top"><td><code>studyEndDate</code></td>
+<td>
+<p>The end date of the analysis. Date format it 'YYYYMM'. If no restriction leave blank.</p>
+</td></tr>
+<tr valign="top"><td><code>requiredDurationDays</code></td>
+<td>
+<p>The minimum required follow-up time in days for patients included in the analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>requiredDomains</code></td>
+<td>
+<p>The data domains required for ALL patients in the analysis, expressed as a character vector.
+Valid values are condition,drug,device,measurement,measurementValues,death,procedure,observation. Default is c(&quot;condition&quot;, &quot;drug&quot;)</p>
+</td></tr>
+<tr valign="top"><td><code>desiredDomains</code></td>
+<td>
+<p>The domains required for SOME patients in the analysis. Meaning you need the dataset to have these data but each person is not
+required to have a record. This is most often used to identify the presence of outcomes of interest. Valid values are condition,drug,device,measurement,measurementValues,death,procedure,observation.
+If no restriction leave blank.</p>
+</td></tr>
+<tr valign="top"><td><code>requiredVisits</code></td>
+<td>
+<p>The visits required for ALL patients in the study, expressed as a character vector, e.g. c(&quot;IP&quot;,&quot;OP&quot;). Valid values are IP,OP,ER. If no restriction leave blank.</p>
+</td></tr>
+<tr valign="top"><td><code>desiredVisits</code></td>
+<td>
+<p>The visits required for SOME patients in the study, expressed as a character vector.
+Meaning you need the dataset to have these data but each person is not required to have a record. This is most often used to identify the presence of outcomes of interest. Valid values are IP,OP,ER.</p>
+</td></tr>
+<tr valign="top"><td><code>targetName</code></td>
+<td>
+<p>The name of the target of interest.</p>
+</td></tr>
+<tr valign="top"><td><code>targetConceptIds</code></td>
+<td>
+<p>A vector containing the required target concepts.</p>
+</td></tr>
+<tr valign="top"><td><code>comparatorName</code></td>
+<td>
+<p>The name of the comparator of interest.</p>
+</td></tr>
+<tr valign="top"><td><code>comparatorConceptIds</code></td>
+<td>
+<p>A vector containing the required comparator concepts.</p>
+</td></tr>
+<tr valign="top"><td><code>indicationName</code></td>
+<td>
+<p>The name of the indication of interest.</p>
+</td></tr>
+<tr valign="top"><td><code>indicationConceptIds</code></td>
+<td>
+<p>A vector containing the required indication concepts.</p>
+</td></tr>
+<tr valign="top"><td><code>includeIndicationInCalc</code></td>
+<td>
+<p>A T/F object indicating whether the proportion of people with the indication concepts should be included in the estimated sample size calculation. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>outcomeName</code></td>
+<td>
+<p>The name of the outcome of interest.</p>
+</td></tr>
+<tr valign="top"><td><code>outcomeConceptIds</code></td>
+<td>
+<p>A vector containing the required outcome concepts.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>DbDiagnostics</em> version 1.3.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

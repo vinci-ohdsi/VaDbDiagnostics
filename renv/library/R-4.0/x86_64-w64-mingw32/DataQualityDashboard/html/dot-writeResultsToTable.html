@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Internal function to write the check results to a table in...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for .writeResultsToTable {DataQualityDashboard}"><tr><td>.writeResultsToTable {DataQualityDashboard}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Internal function to write the check results to a table in the database. Requires write access to the database</h2>
+
+<h3>Description</h3>
+
+<p>Internal function to write the check results to a table in the database. Requires write access to the database
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+.writeResultsToTable(
+  connectionDetails,
+  resultsDatabaseSchema,
+  checkResults,
+  writeTableName,
+  cohortDefinitionId
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>A connectionDetails object for connecting to the CDM database</p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>The fully qualified database name of the results schema</p>
+</td></tr>
+<tr valign="top"><td><code>checkResults</code></td>
+<td>
+<p>A dataframe containing the fully summarized data quality check results</p>
+</td></tr>
+<tr valign="top"><td><code>writeTableName</code></td>
+<td>
+<p>The name of the table to be written to the database. Default is &quot;dqdashboard_results&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortDefinitionId</code></td>
+<td>
+<p>(OPTIONAL) The cohort definition id for the cohort you wish to run the DQD on. The package assumes a standard OHDSI cohort table called 'Cohort'
+with the fields cohort_definition_id and subject_id.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>DataQualityDashboard</em> version 2.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

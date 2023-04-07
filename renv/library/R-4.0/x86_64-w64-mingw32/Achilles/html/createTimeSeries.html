@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createTimeSeries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createTimeSeries {Achilles}"><tr><td>createTimeSeries {Achilles}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createTimeSeries</h2>
+
+<h3>Description</h3>
+
+<p><code>createTimeSeries</code> Creates a monthly multivariate time series object given a data frame in the
+proper format.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createTimeSeries(temporalData)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>temporalData</code></td>
+<td>
+<p>A data frame from which to create the time series</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>createTimeSeries</code> Requires the following: </p>
+<pre> 1. The given data frame must contain
+four columns: START_DATE, COUNT_VALUE, PREVALENCE, and PROPORTION_WITHIN_YEAR. 2. START_DATE must
+be in the YYYYMMDD format. 3. COUNT_VALUE, PREVALENCE, and PROPORTION_WITHIN_YEAR contain only
+numeric data. </pre><p> The individual monthly univariate time series can be extracted by specifying the
+correct column name (see example).
+</p>
+
+
+<h3>Value</h3>
+
+<p>A multivariate time series object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# Example 1:
+temporalData &lt;- data.frame(START_DATE = seq.Date(as.Date("20210101", "%Y%m%d"),
+                                                 as.Date("20231201",
+  "%Y%m%d"), by = "month"), COUNT_VALUE = round(runif(36, 1, 1000)), PREVALENCE = round(runif(36,
+  0, 10), 2), PROPORTION_WITHIN_YEAR = round(runif(36, 0, 1), 2), stringsAsFactors = FALSE)
+dummyTs &lt;- createTimeSeries(temporalData)
+dummyTs.cv &lt;- dummyTs[, "COUNT_VALUE"]
+dummyTs.pv &lt;- dummyTs[, "PREVALENCE"]
+dummyTs.pwy &lt;- dummyTs[, "PROPORTION_WITHIN_YEAR"]
+
+# Example 2:
+pneumonia &lt;- 255848
+temporalData &lt;- getTemporalData(connectionDetails = connectionDetails, cdmDatabaseSchema = "cdm",
+  resultsDatabaseSchema = "results", conceptId = pneumonia)
+pneumoniaTs &lt;- createTimeSeries(temporalData)
+pneumoniaTs.cv &lt;- pneumoniaTs[, "COUNT_VALUE"]
+pneumoniaTs.pv &lt;- pneumoniaTs[, "PREVALENCE"]
+pneumoniaTs.pwy &lt;- pneumoniaTs[, "PROPORTION_WITHIN_YEAR"]
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Achilles</em> version 1.7 <a href="00Index.html">Index</a>]</div>
+</body></html>

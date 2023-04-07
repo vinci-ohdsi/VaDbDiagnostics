@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create an R wrapper for SQL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createRWrapperForSql {SqlRender}"><tr><td>createRWrapperForSql {SqlRender}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create an R wrapper for SQL</h2>
+
+<h3>Description</h3>
+
+<p><code>createRWrapperForSql</code> creates an R wrapper for a parameterized SQL file. The created R script
+file will contain a single function, that executes the SQL, and accepts the same parameters as
+specified in the SQL.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createRWrapperForSql(
+  sqlFilename,
+  rFilename,
+  packageName,
+  createRoxygenTemplate = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sqlFilename</code></td>
+<td>
+<p>The SQL file.</p>
+</td></tr>
+<tr valign="top"><td><code>rFilename</code></td>
+<td>
+<p>The name of the R file to be generated. Defaults to the name of the
+SQL file with the extension reset to R.</p>
+</td></tr>
+<tr valign="top"><td><code>packageName</code></td>
+<td>
+<p>The name of the package that will contains the SQL file.</p>
+</td></tr>
+<tr valign="top"><td><code>createRoxygenTemplate</code></td>
+<td>
+<p>If true, a template of Roxygen comments will be added.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function reads the declarations of defaults in the parameterized SQL file, and creates an R
+function that exposes the parameters. It uses the <code>loadRenderTranslateSql</code> function, and
+assumes the SQL will be used inside a package. To use inside a package, the SQL file should be
+placed in the inst/sql/sql_server folder of the package.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# This will create a file called CohortMethod.R:
+createRWrapperForSql("CohortMethod.sql", packageName = "CohortMethod")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>SqlRender</em> version 1.13.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

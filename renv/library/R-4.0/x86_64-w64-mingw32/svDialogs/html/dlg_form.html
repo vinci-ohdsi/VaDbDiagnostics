@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Modal dialog to fill a series of different fields.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dlg_form {svDialogs}"><tr><td>dlg_form {svDialogs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Modal dialog to fill a series of different fields.</h2>
+
+<h3>Description</h3>
+
+<p>A customizable form dialog box with checkboxes, entries, lists, etc.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dlg_form(
+  form,
+  title = "Fill the form",
+  message = NULL,
+  columns = 1,
+  strip.type = TRUE,
+  ...,
+  gui = .GUI
+)
+
+dlgForm(
+  form,
+  title = "Fill the form",
+  message = NULL,
+  columns = 1,
+  strip.type = TRUE,
+  ...,
+  gui = .GUI
+)
+
+## S3 method for class 'gui'
+dlg_form(
+  form,
+  title = "Fill the form",
+  message = NULL,
+  columns = 1,
+  strip.type = TRUE,
+  ...,
+  gui = .GUI
+)
+
+## S3 method for class 'textCLI'
+dlg_form(
+  form,
+  title = "Fill the form",
+  message = NULL,
+  columns = 1,
+  strip.type = TRUE,
+  ...,
+  gui = .GUI
+)
+
+## S3 method for class 'nativeGUI'
+dlg_form(
+  form,
+  title = "Fill the form",
+  message = NULL,
+  columns = 1,
+  strip.type = TRUE,
+  ...,
+  gui = .GUI
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>form</code></td>
+<td>
+<p>Named list of default values, or list of possible items. Names
+are the labels of corresponding entries in the dialog box, followed by an
+indicator of the type of entry to place in the dialog box (see details).</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>The title of the form.</p>
+</td></tr>
+<tr valign="top"><td><code>message</code></td>
+<td>
+<p>An optional message to display in the dialog box. Use
+<code style="white-space: pre;">\\n</code> for line break, or provide a vector of character strings, one for
+each line.</p>
+</td></tr>
+<tr valign="top"><td><code>columns</code></td>
+<td>
+<p>Arrange the entries on this number of columns (by row).</p>
+</td></tr>
+<tr valign="top"><td><code>strip.type</code></td>
+<td>
+<p>Do we strip the type from the names in results?</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Pass further arguments to methods.</p>
+</td></tr>
+<tr valign="top"><td><code>gui</code></td>
+<td>
+<p>The 'gui' object concerned by this dialog box.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The form content is defined by a named list. Items are default
+values, or a list of possible items, e.g., for the combobox. Names are labels
+displayed in front of each field in the form. Follow them by a code that
+represents the type of entry you want to use:
+</p>
+
+<ul>
+<li> <p><code style="white-space: pre;">:TXT</code> for simple (default) textual box,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:H</code> for hidden text (password),
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:RO</code> for read-only text,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:NUM</code> for null of positive integers with up/down arrows,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:CHK</code> for checkbox: <code>TRUE</code> or <code>FALSE</code>,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:CB</code> for read-only combobox,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:CBE</code> for editable combobox,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:FL</code> to select one existing file,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:MFL</code> to select multiple existing files,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:SFL</code> to select or create one file,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:DIR</code> to select a directory,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:CDIR</code> to select or create a directory,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:FN</code> to select font and font size,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:DT</code> to enter a date,
+</p>
+</li>
+<li><p> :CLR' to enter a RGB color,
+</p>
+</li>
+<li><p> :BTN' to create a button that execute some code,
+</p>
+</li>
+<li> <p><code style="white-space: pre;">:LBL</code> to add a label.
+</p>
+</li></ul>
+
+<p>For the moment, the form dialog box is only supported on Linux. You have to
+install <strong>yad</strong> to get access to it. On Ubuntu, you do so by
+<code style="white-space: pre;">sudo apt-get install yad</code>. For other system, look at the documentation.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The modified 'gui' object is returned invisibly. Use its <code>gui$res</code>
+component to get the list of returned fields.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>dlg_form()</code> can use strings with embedded quotes, but you have to
+escape them (and need to double the backslash escape sign). Currently,
+this is not done automatically, on the contrary to the other <code>dlg_xxx()</code>
+functions!
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="dlg_input.html">dlg_input()</a></code>, <code><a href="dlg_list.html">dlg_list()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# Ask a series of items at once in a dialog box
+form &lt;- list(
+  "Name:TXT" = "John Smith",
+  "Age:NUM" = 25,
+  "Sex:CB" = c("male", "female"),
+  "Married:CHK" = FALSE
+)
+dlg_form(form, "My data")$res
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>svDialogs</em> version 1.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

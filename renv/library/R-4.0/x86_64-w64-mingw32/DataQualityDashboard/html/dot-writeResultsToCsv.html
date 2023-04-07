@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Internal function to write the check results to a csv file.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for .writeResultsToCsv {DataQualityDashboard}"><tr><td>.writeResultsToCsv {DataQualityDashboard}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Internal function to write the check results to a csv file.</h2>
+
+<h3>Description</h3>
+
+<p>Internal function to write the check results to a csv file.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+.writeResultsToCsv(
+  checkResults,
+  csvPath,
+  columns = c("checkId", "failed", "passed", "isError", "notApplicable", "checkName",
+    "checkDescription", "thresholdValue", "notesValue", "checkLevel", "category",
+    "subcategory", "context", "checkLevel", "cdmTableName", "cdmFieldName", "conceptId",
+    "unitConceptId", "numViolatedRows", "pctViolatedRows", "numDenominatorRows",
+    "executionTime", "notApplicableReason", "error", "queryText"),
+  delimiter = ","
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>checkResults</code></td>
+<td>
+<p>A dataframe containing the fully summarized data quality check results</p>
+</td></tr>
+<tr valign="top"><td><code>csvPath</code></td>
+<td>
+<p>The path where the csv file should be written</p>
+</td></tr>
+<tr valign="top"><td><code>columns</code></td>
+<td>
+<p>The columns to be included in the csv file. Default is all columns in the checkResults dataframe.</p>
+</td></tr>
+<tr valign="top"><td><code>delimiter</code></td>
+<td>
+<p>The delimiter for the file. Default is comma.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>DataQualityDashboard</em> version 2.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

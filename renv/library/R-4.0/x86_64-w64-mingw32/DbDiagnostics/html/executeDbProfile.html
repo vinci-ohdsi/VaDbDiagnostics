@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: executeDbProfile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for executeDbProfile {DbDiagnostics}"><tr><td>executeDbProfile {DbDiagnostics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>executeDbProfile</h2>
+
+<h3>Description</h3>
+
+<p>executeDbProfile
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+executeDbProfile(
+  connectionDetails,
+  cdmDatabaseSchema,
+  resultsDatabaseSchema,
+  writeTo,
+  vocabDatabaseSchema,
+  cdmSourceName = NA,
+  siteName = NA,
+  siteOHDSIParticipation = NA,
+  siteOHDSIRunPackage = NA,
+  dataFullName = NA,
+  dataShortName = NA,
+  dataContactName = NA,
+  dataContactEmail = NA,
+  dataDoiType = NA,
+  governanceTime = NA,
+  dataProvenance = NA,
+  refreshTime = NA,
+  outputFolder = getwd(),
+  cdmVersion = "5.3",
+  appendAchilles = FALSE,
+  minCellCount = 5,
+  roundTo = 10,
+  excludedConcepts = c(),
+  addDQD = FALSE,
+  tableCheckThresholds = "default",
+  fieldCheckThresholds = "default",
+  conceptCheckThresholds = "default"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>A connectionDetails object for connecting to the CDM database</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>The fully qualified database name of the CDM schema</p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>The fully qualified database name of the results schema where achilles results are held</p>
+</td></tr>
+<tr valign="top"><td><code>writeTo</code></td>
+<td>
+<p>The fully qualified schema you have write access to. This will be used to store any missing analyses that need to be run.</p>
+</td></tr>
+<tr valign="top"><td><code>vocabDatabaseSchema</code></td>
+<td>
+<p>The fully qualified database name of the vocabulary schema</p>
+</td></tr>
+<tr valign="top"><td><code>cdmSourceName</code></td>
+<td>
+<p>A string containing the name of the database</p>
+</td></tr>
+<tr valign="top"><td><code>siteName</code></td>
+<td>
+<p>The name of the site or institution that owns or licenses the data.</p>
+</td></tr>
+<tr valign="top"><td><code>siteOHDSIParticipation</code></td>
+<td>
+<p>Yes/No if the site contributed to an OHDSI study in the past</p>
+</td></tr>
+<tr valign="top"><td><code>siteOHDSIRunPackage</code></td>
+<td>
+<p>Yes/No if site has someone who can run and/or debug an OHDSI study package</p>
+</td></tr>
+<tr valign="top"><td><code>dataFullName</code></td>
+<td>
+<p>The full name of the database</p>
+</td></tr>
+<tr valign="top"><td><code>dataShortName</code></td>
+<td>
+<p>The short name or nickname of the database</p>
+</td></tr>
+<tr valign="top"><td><code>dataContactName</code></td>
+<td>
+<p>The name of the person who should be contacted in the event this database is identified as a good candidate for a study</p>
+</td></tr>
+<tr valign="top"><td><code>dataContactEmail</code></td>
+<td>
+<p>The email address of the person who should be contacted in the event this database is identified as a good candidate for a study</p>
+</td></tr>
+<tr valign="top"><td><code>dataDoiType</code></td>
+<td>
+<p>The type of data object identifier (DOI) the database has. Options are &quot;DOI&quot;, &quot;CURIE&quot;, &quot;ARK&quot;, &quot;Other&quot;,</p>
+</td></tr>
+<tr valign="top"><td><code>governanceTime</code></td>
+<td>
+<p>How long (in weeks) it typically takes to receive approval to run a study on this database</p>
+</td></tr>
+<tr valign="top"><td><code>dataProvenance</code></td>
+<td>
+<p>The type(s) of data that are present in your database. Options are &quot;Electronic Health Records&quot;, &quot;Administrative Claims&quot;, &quot;Disease-specific Registry&quot;, &quot;Wearable or Sensor Data&quot;, &quot;Other&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>refreshTime</code></td>
+<td>
+<p>How often the data are refreshed</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>Results will be written to this directory, Default = getwd()</p>
+</td></tr>
+<tr valign="top"><td><code>cdmVersion</code></td>
+<td>
+<p>The CDM version to target for the data source. Default = &quot;5.3&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>appendAchilles</code></td>
+<td>
+<p>Specify if any missing achilles analyses should be appended to existing achilles results tables. This requires write access to the schema specified in the <code>resultsDatabaseSchema</code>. Default is FALSE meaning any missing analyses will be written to the schema specified in the <code>writeTo</code> parameter.</p>
+</td></tr>
+<tr valign="top"><td><code>minCellCount</code></td>
+<td>
+<p>Minimum cell count to allow in analyses. Default = 0</p>
+</td></tr>
+<tr valign="top"><td><code>roundTo</code></td>
+<td>
+<p>Specify whether to round to the 10s or 100s place. Valid inputs are 10 or 100, default is 10.</p>
+</td></tr>
+<tr valign="top"><td><code>excludedConcepts</code></td>
+<td>
+<p>A vector of concepts that should not be included in the final file &quot;achilles_results_augmented.csv&quot;.
+This is the file that is shared with as part of the OHDSI network initiative.</p>
+</td></tr>
+<tr valign="top"><td><code>addDQD</code></td>
+<td>
+<p>Specify if DQD should be run. Default = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>tableCheckThresholds</code></td>
+<td>
+<p>OPTIONAL Location of the custom threshold file for the DQD table checks. In absence of this parameter the default thresholds are used.</p>
+</td></tr>
+<tr valign="top"><td><code>fieldCheckThresholds</code></td>
+<td>
+<p>OPTIONAL Location of the custom threshold file for the DQD field checks. In absence of this parameter the default thresholds are used.</p>
+</td></tr>
+<tr valign="top"><td><code>conceptCheckThresholds</code></td>
+<td>
+<p>OPTIONAL Location of the custom threshold file for the DQD concept checks. In absence of this parameter the default thresholds are used.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>DbDiagnostics</em> version 1.3.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

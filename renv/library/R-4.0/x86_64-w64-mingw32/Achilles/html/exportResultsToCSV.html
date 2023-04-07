@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: exportResultsToCSV</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for exportResultsToCSV {Achilles}"><tr><td>exportResultsToCSV {Achilles}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>exportResultsToCSV</h2>
+
+<h3>Description</h3>
+
+<p><code>exportResultsToCSV</code> exports all results to a CSV file
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+exportResultsToCSV(
+  connectionDetails,
+  resultsDatabaseSchema,
+  analysisIds = c(),
+  minCellCount = 5,
+  exportFolder
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An R object of type <code>connectionDetails</code> created using the
+function <code>createConnectionDetails</code> in the
+<code>DatabaseConnector</code> package.</p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>Fully qualified name of database schema that we can write final
+results to. Default is cdmDatabaseSchema. On SQL Server, this should
+specifiy both the database and the schema, so for example, on SQL
+Server, 'cdm_results.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>analysisIds</code></td>
+<td>
+<p>(OPTIONAL) A vector containing the set of Achilles analysisIds for
+which results will be generated. If not specified, all analyses will
+be executed. Use <code><a href="getAnalysisDetails.html">getAnalysisDetails</a></code> to get a list of
+all Achilles analyses and their Ids.</p>
+</td></tr>
+<tr valign="top"><td><code>minCellCount</code></td>
+<td>
+<p>To avoid patient identification, cells with small counts (&lt;=
+minCellCount) are deleted. Set to 0 for complete summary without
+small cell count restrictions.</p>
+</td></tr>
+<tr valign="top"><td><code>exportFolder</code></td>
+<td>
+<p>Path to store results</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>exportResultsToCSV</code> writes a CSV file with all results to the export folder.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>Achilles</em> version 1.7 <a href="00Index.html">Index</a>]</div>
+</body></html>

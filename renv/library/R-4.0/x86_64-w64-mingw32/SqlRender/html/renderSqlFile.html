@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Render a SQL file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for renderSqlFile {SqlRender}"><tr><td>renderSqlFile {SqlRender}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Render a SQL file</h2>
+
+<h3>Description</h3>
+
+<p><code>renderSqlFile</code> Renders SQL code in a file based on parameterized SQL and parameter values,
+and writes it to another file.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+renderSqlFile(sourceFile, targetFile, warnOnMissingParameters = TRUE, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sourceFile</code></td>
+<td>
+<p>The source SQL file</p>
+</td></tr>
+<tr valign="top"><td><code>targetFile</code></td>
+<td>
+<p>The target SQL file</p>
+</td></tr>
+<tr valign="top"><td><code>warnOnMissingParameters</code></td>
+<td>
+<p>Should a warning be raised when parameters provided to this
+function do not appear in the parameterized SQL that is being
+rendered? By default, this is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Parameter values</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function takes parameterized SQL and a list of parameter values and renders the SQL that can
+be send to the server. Parameterization syntax: </p>
+ <dl>
+<dt>@parameterName</dt><dd><p>Parameters are
+indicated using a @ prefix, and are replaced with the actual values provided in the render call.</p>
+</dd>
+<dt>{DEFAULT @parameterName = parameterValue}</dt><dd><p>Default values for parameters can be defined
+using curly and the DEFAULT keyword.</p>
+</dd> <dt>{if}?{then}:{else}</dt><dd><p>The if-then-else pattern is
+used to turn on or off blocks of SQL code.</p>
+</dd> </dl>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+renderSqlFile("myParamStatement.sql", "myRenderedStatement.sql", a = "myTable")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>SqlRender</em> version 1.13.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

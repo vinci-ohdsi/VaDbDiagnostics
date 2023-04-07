@@ -1,0 +1,37 @@
+Package: DbDiagnostics
+Type: Package
+Title: OMOP CDM Database Diagnostics Utility
+Version: 1.3.1
+Date: 2022-04-26
+Authors@R: c(
+  person("Clair", "Blacketer", , "mblacke@its.jnj.com", role = c("aut", "cre")),
+	person("Frank", "DeFalco", role = c("aut"))
+	)
+Maintainer: Clair Blacketer <mblacke@its.jnj.com>
+Description: Functions for extracting profile data for an OMOP CDM database and determining if the database is appropriate for individual use cases.
+License: Apache License 2.0
+VignetteBuilder: knitr
+Depends: R (>= 3.5.0), DatabaseConnector (>= 4.0.0), ParallelLogger, lubridate
+Imports: dplyr, tidyr, sqldf, magrittr, svDialogs, SqlRender (>= 1.7.0),
+    Achilles (>= 1.7.0), DataQualityDashboard (>= 1.4.0), CohortGenerator,
+    testthat, rmarkdown, Eunomia
+Suggests: knitr
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
+Author: Clair Blacketer [aut, cre],
+  Frank DeFalco [aut]
+Built: R 4.0.3; ; 2023-04-07 23:24:13 UTC; windows
+RemoteType: github
+Remotes: ohdsi/Eunomia, ohdsi/Achilles, ohdsi/DataQualityDashboard
+RemoteHost: api.github.com
+RemoteRepo: DbDiagnostics
+RemoteUsername: OHDSI
+RemoteRef: HEAD
+RemoteSha: 522ae9429b12fab4202f559b9de083efecb90bc1
+GithubHost: api.github.com
+GithubRepo: DbDiagnostics
+GithubUsername: OHDSI
+GithubRef: HEAD
+GithubSHA1: 522ae9429b12fab4202f559b9de083efecb90bc1
+Remotes: ohdsi/Eunomia, ohdsi/Achilles, ohdsi/DataQualityDashboard

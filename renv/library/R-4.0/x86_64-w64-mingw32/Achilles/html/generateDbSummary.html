@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: generateDbSummary</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for generateDbSummary {Achilles}"><tr><td>generateDbSummary {Achilles}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>generateDbSummary</h2>
+
+<h3>Description</h3>
+
+<p><code>generateDbSummary</code> can be run after the Achilles analyses are complete 
+to create a high-level database summary.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+generateDbSummary(
+  connectionDetails,
+  cdmDatabaseSchema,
+  resultsDatabaseSchema,
+  country,
+  provenance
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An R object of type <code>connectionDetails</code> created using the
+function <code>createConnectionDetails</code> in the
+<code>DatabaseConnector</code> package.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>Fully qualified name of database schema that contains OMOP CDM
+schema. On SQL Server, this should specifiy both the database and the
+schema, so for example, on SQL Server, 'cdm_instance.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>Fully qualified name of database schema that we can write final
+results to. Default is cdmDatabaseSchema. On SQL Server, this should
+specifiy both the database and the schema, so for example, on SQL
+Server, 'cdm_results.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>country</code></td>
+<td>
+<p>The country of origin of the database</p>
+</td></tr>
+<tr valign="top"><td><code>provenance</code></td>
+<td>
+<p>The provenance of the data (EHR, claims, registry, etc)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Used to generate a high-level database summary consisting of earliest date available, latest
+date available, median age at first observation, total persons, etc. This function
+creates a summary table meant for a manuscript detailing the network of databases
+used in an analysis
+</p>
+
+
+<h3>Value</h3>
+
+<p>none
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connectionDetails &lt;- DatabaseConnector::createConnectionDetails(dbms = "sql server",
+                                                                server = "yourserver")
+dbSummary &lt;- generateDbSummary(connectionDetails,
+                               cdmDatabaseSchema = "cdm_schema",
+                               resultsDatabaseSchema = "results_schema",
+                               country = "Country of Origin",
+                               provenance = "Provenance of data")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Achilles</em> version 1.7 <a href="00Index.html">Index</a>]</div>
+</body></html>

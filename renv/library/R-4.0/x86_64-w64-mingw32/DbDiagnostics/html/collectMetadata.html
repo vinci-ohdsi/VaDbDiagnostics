@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: collectMetadata</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for collectMetadata {DbDiagnostics}"><tr><td>collectMetadata {DbDiagnostics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>collectMetadata</h2>
+
+<h3>Description</h3>
+
+<p>collectMetadata
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+collectMetadata(
+  outputFolder,
+  outputFileName = "metadata",
+  siteName = NA,
+  siteOHDSIParticipation = NA,
+  siteOHDSIRunPackage = NA,
+  dataFullName = NA,
+  dataShortName = NA,
+  dataContactName = NA,
+  dataContactEmail = NA,
+  dataDoiType = NA,
+  governanceTime = NA,
+  dataProvenance = NA,
+  refreshTime = NA
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>The output folder location where the csv with the metadata should be saved</p>
+</td></tr>
+<tr valign="top"><td><code>outputFileName</code></td>
+<td>
+<p>The name of the file to be written. Default is metadata.csv</p>
+</td></tr>
+<tr valign="top"><td><code>siteName</code></td>
+<td>
+<p>The name of the site or institution that owns or licenses the data.</p>
+</td></tr>
+<tr valign="top"><td><code>siteOHDSIParticipation</code></td>
+<td>
+<p>Yes/No if the site contributed to an OHDSI study in the past</p>
+</td></tr>
+<tr valign="top"><td><code>siteOHDSIRunPackage</code></td>
+<td>
+<p>Yes/No if site has someone who can run and/or debug an OHDSI study package</p>
+</td></tr>
+<tr valign="top"><td><code>dataFullName</code></td>
+<td>
+<p>The full name of the database</p>
+</td></tr>
+<tr valign="top"><td><code>dataShortName</code></td>
+<td>
+<p>The short name or nickname of the database</p>
+</td></tr>
+<tr valign="top"><td><code>dataContactName</code></td>
+<td>
+<p>The name of the person who should be contacted in the event this database is identified as a good candidate for a study</p>
+</td></tr>
+<tr valign="top"><td><code>dataContactEmail</code></td>
+<td>
+<p>The email address of the person who should be contacted in the event this database is identified as a good candidate for a study</p>
+</td></tr>
+<tr valign="top"><td><code>dataDoiType</code></td>
+<td>
+<p>The type of data object identifier (DOI) the database has. Options are &quot;DOI&quot;, &quot;CURIE&quot;, &quot;ARK&quot;, &quot;Other&quot;,</p>
+</td></tr>
+<tr valign="top"><td><code>governanceTime</code></td>
+<td>
+<p>How long (in weeks) it typically takes to receive approval to run a study on this database</p>
+</td></tr>
+<tr valign="top"><td><code>dataProvenance</code></td>
+<td>
+<p>The type(s) of data that are present in your database. Options are &quot;Electronic Health Records&quot;, &quot;Administrative Claims&quot;, &quot;Disease-specific Registry&quot;, &quot;Wearable or Sensor Data&quot;, &quot;Other&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>refreshTime</code></td>
+<td>
+<p>How often the data are refreshed</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>DbDiagnostics</em> version 1.3.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

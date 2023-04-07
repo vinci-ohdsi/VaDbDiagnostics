@@ -1,0 +1,7 @@
+executeDqChecks         Execute DQ checks
+listDqChecks            List DQ checks
+reEvaluateThresholds    Re-evaluate Thresholds
+viewDqDashboard         View DQ Dashboard
+writeJsonResultsToCsv   Write JSON Results to CSV file
+writeJsonResultsToTable
+                        Write JSON Results to SQL Table

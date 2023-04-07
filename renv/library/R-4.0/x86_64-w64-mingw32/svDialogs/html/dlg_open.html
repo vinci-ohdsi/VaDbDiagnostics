@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Modal dialog to select a file.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dlg_open {svDialogs}"><tr><td>dlg_open {svDialogs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Modal dialog to select a file.</h2>
+
+<h3>Description</h3>
+
+<p>Select an existing file, or create a new one.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dlg_open(
+  default = "",
+  title = if (multiple) "Select files" else "Select file",
+  multiple = FALSE,
+  filters = dlg_filters["All", ],
+  ...,
+  gui = .GUI
+)
+
+dlgOpen(
+  default = "",
+  title = if (multiple) "Select files" else "Select file",
+  multiple = FALSE,
+  filters = dlg_filters["All", ],
+  ...,
+  gui = .GUI
+)
+
+dlg_filters
+
+dlgFilters
+
+## S3 method for class 'gui'
+dlg_open(
+  default,
+  title,
+  multiple = FALSE,
+  filters = dlg_filters["All", ],
+  ...,
+  gui = .GUI
+)
+
+## S3 method for class 'textCLI'
+dlg_open(
+  default,
+  title,
+  multiple = FALSE,
+  filters = dlg_filters["All", ],
+  ...,
+  gui = .GUI
+)
+
+## S3 method for class 'nativeGUI'
+dlg_open(
+  default,
+  title,
+  multiple = FALSE,
+  filters = dlg_filters["All", ],
+  rstudio = getOption("svDialogs.rstudio", TRUE),
+  ...,
+  gui = .GUI
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>default</code></td>
+<td>
+<p>The default file to start with (use <code style="white-space: pre;">/dir/*</code> or <code style="white-space: pre;">/dir/*.*</code> to
+start in a given directory).</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>A title to display on top of the dialog box.</p>
+</td></tr>
+<tr valign="top"><td><code>multiple</code></td>
+<td>
+<p>Is a multiple selection of files allowed?</p>
+</td></tr>
+<tr valign="top"><td><code>filters</code></td>
+<td>
+<p>A specification of file filters as a <code>nx2</code> matrix, or a
+character string with even number of items. First items is the label, second
+one is the filter. See <code>dlg_filters</code> for examples. This is currently ignored
+on MacOS and RStudio, since such kind of filter is defined differently there.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Pass further arguments to methods.</p>
+</td></tr>
+<tr valign="top"><td><code>gui</code></td>
+<td>
+<p>The 'gui' object concerned by this dialog box.</p>
+</td></tr>
+<tr valign="top"><td><code>rstudio</code></td>
+<td>
+<p>Logical. Should 'RStudio' dialog boxes automatically be used
+if available? If <code>FALSE</code>, force using OS dialog boxes, but only in
+'RStudio Desktop' (ignored in 'RStudio Server'). Can be changed globally
+with <code>options(svDialogs.rstudio = TRUE|FALSE)</code>. <code>TRUE</code> by default.</p>
+</td></tr>
+</table>
+
+
+<h3>Format</h3>
+
+<p>An object of class <code>matrix</code> (inherits from <code>array</code>) with 22 rows and 2 columns.
+</p>
+<p>An object of class <code>matrix</code> (inherits from <code>array</code>) with 22 rows and 2 columns.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The modified 'gui' object is returned invisibly. The chosen file(s),
+or an empty string if the &quot;cancel&quot; button was clicked is found in <code>gui$res</code>
+(see example).
+</p>
+
+
+<h3>Note</h3>
+
+<p>On 'RStudio Server', <code>multiple = TRUE</code> cannot be honored for now. So,
+you can only select one file there, and a warning is issued to remind you
+that. On 'RStudio Desktop', the OS-native dialog box is used instead in case
+of <code>multiple = TRUE</code>. Also, the textual version is painful to indicate
+the full path of several files. So, it should use globbing, and/or indication
+of a path followed by a selection in a list (to be done in further versions).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="dlg_save.html">dlg_save()</a></code>, <code><a href="dlg_dir.html">dlg_dir()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# Choose one R file
+dlg_open(title = "Select one R file", filters = dlg_filters[c("R", "All"), ])$res
+# Choose several files
+dlg_open(multiple = TRUE)$res
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>svDialogs</em> version 1.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

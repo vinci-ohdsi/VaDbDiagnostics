@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Manage custom R menus.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for menu {svDialogs}"><tr><td>menu {svDialogs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Manage custom R menus.</h2>
+
+<h3>Description</h3>
+
+<p>Create, populate and rework custom R menus.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+menu_names()
+
+menuNames()
+
+menu_items(menuname)
+
+menuItems(menuname)
+
+menu_add(menuname)
+
+menuAdd(menuname)
+
+menu_add_item(menuname, itemname, action)
+
+menuAddItem(menuname, itemname, action)
+
+menu_del(menuname)
+
+menuDel(menuname)
+
+menu_del_item(menuname, itemname)
+
+menuDelItem(menuname, itemname)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>menuname</code></td>
+<td>
+<p>A character string naming a menu.</p>
+</td></tr>
+<tr valign="top"><td><code>itemname</code></td>
+<td>
+<p>A character string naming a menu item on an existing menu.</p>
+</td></tr>
+<tr valign="top"><td><code>action</code></td>
+<td>
+<p>A character string with the action to perform when the menu item
+is selected, or <code>"none"</code> for no action. Use <code>"enable"</code> or <code>"disable"</code> to
+activate or deactivate an existing menu item.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>On Windows, the function manages custom menus in RGui the same way
+as <code>winMenuAdd()</code> and similar function do. Menus are added to the right and
+new menu entries are added to the bottom of the menu. It is currently not
+possible to add menus for <strong>'Rterm.exe'</strong> under Windows.
+</p>
+<p>On Unix/Linux, under Gnome, you must install a little Gtk2 program called
+<code>ctxmenu</code>, as well as a few other utilities to manage the menu actions. You
+can download corresponding files (GPL-2 license) and get further instructions
+at the bottom of http://www.sciviews.org/SciViews-R/. The <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> code in
+<strong>'svDialogs'</strong> only creates menu configuration files in <code style="white-space: pre;">~/.ctxmenu/tmp/</code> and
+only in interactive <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> session and after the user agrees to do so (unless
+<code>options(svDialogs.tmpfiles = TRUE)</code>).
+Once you installed these files, you can access the menus by setting up
+keyboard shortcuts to activate main and context menus. The respective
+commands are <code>ctxmenu-main</code> and <code>ctxmenu-context</code> and you can use the
+preference panel to assign, e.g., <code style="white-space: pre;">&lt;shift-menu&gt;</code> and <code style="white-space: pre;">&lt;ctrl-menu&gt;</code>, or other
+keyboard shortcuts to these commands. Once everything is set up, you should
+see your menus appearing when a console where <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> + <strong>'svDialogs'</strong> runs is the
+active window and you hit these shortcuts (after you have defined at least
+one custom menu). Note also that you can define custom context menus for
+other applications too, see the <code>README</code> file in the <code>ctxmenu</code> download.
+</p>
+<p>On MacOS, these functions are not implemented yet (but see source of the
+package for experimental code commented out and try the JGR version for a
+first implementation there).
+</p>
+<p>Action is treated as <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> input (echoed at the command line, parsed and
+executed), except if it is <code>"none"</code>. In this case, no action is run when the
+menu item is selected (merely as a placeholder for future menu actions). You
+can change the action of an existing menu by reissuing the command with a
+different action argument.
+</p>
+<p>If the <code style="white-space: pre;">menuname=</code> parameter of <code>menu_add_item()</code> does not exists, it is
+automatically created. For creating submenus, separate successive menu names
+with slashes. Use <code>"-"</code> as name for separation menus under Windows or
+Unix/Linux.
+</p>
+
+
+<h3>Value</h3>
+
+<p>These function return <code>NULL</code> invisibly. They are used for their
+side-effect of creating, changing, or deleting custom R menus.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="dlg_open.html">dlg_open()</a></code>, <code><a href="dlg_save.html">dlg_save()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# A quick default directory changer
+setwd(dlg_dir(default = getwd())$res)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>svDialogs</em> version 1.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

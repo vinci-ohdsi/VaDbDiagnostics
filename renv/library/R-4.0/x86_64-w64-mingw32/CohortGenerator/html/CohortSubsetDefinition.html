@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Cohort Subset Definition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for CohortSubsetDefinition {CohortGenerator}"><tr><td>CohortSubsetDefinition {CohortGenerator}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Cohort Subset Definition</h2>
+
+<h3>Description</h3>
+
+<p>Set of subset definitions
+</p>
+
+
+<h3>Active bindings</h3>
+
+<div class="r6-active-bindings">
+
+<dl>
+<dt><code>targetOutputPairs</code></dt><dd><p>list of pairs of integers - (targetCohortId, outputCohortId)</p>
+</dd>
+<dt><code>subsetOperators</code></dt><dd><p>list of subset operations</p>
+</dd>
+<dt><code>name</code></dt><dd><p>name of definition</p>
+</dd>
+<dt><code>definitionId</code></dt><dd><p>numeric definition id</p>
+</dd>
+<dt><code>identifierExpression</code></dt><dd><p>expression that can be evaluated from</p>
+</dd>
+</dl>
+
+</div>
+
+
+<h3>Methods</h3>
+
+
+
+<h4>Public methods</h4>
+
+
+<ul>
+<li> <p><a href="#method-CohortSubsetDefinition-new"><code>CohortSubsetDefinition$new()</code></a>
+</p>
+</li>
+<li> <p><a href="#method-CohortSubsetDefinition-toList"><code>CohortSubsetDefinition$toList()</code></a>
+</p>
+</li>
+<li> <p><a href="#method-CohortSubsetDefinition-toJSON"><code>CohortSubsetDefinition$toJSON()</code></a>
+</p>
+</li>
+<li> <p><a href="#method-CohortSubsetDefinition-addSubsetOperator"><code>CohortSubsetDefinition$addSubsetOperator()</code></a>
+</p>
+</li>
+<li> <p><a href="#method-CohortSubsetDefinition-getSubsetQuery"><code>CohortSubsetDefinition$getSubsetQuery()</code></a>
+</p>
+</li>
+<li> <p><a href="#method-CohortSubsetDefinition-getSubsetCohortName"><code>CohortSubsetDefinition$getSubsetCohortName()</code></a>
+</p>
+</li>
+<li> <p><a href="#method-CohortSubsetDefinition-setTargetOutputPairs"><code>CohortSubsetDefinition$setTargetOutputPairs()</code></a>
+</p>
+</li>
+<li> <p><a href="#method-CohortSubsetDefinition-getJsonFileName"><code>CohortSubsetDefinition$getJsonFileName()</code></a>
+</p>
+</li>
+<li> <p><a href="#method-CohortSubsetDefinition-clone"><code>CohortSubsetDefinition$clone()</code></a>
+</p>
+</li></ul>
+
+
+<hr>
+<a id="method-CohortSubsetDefinition-new"></a>
+
+
+
+<h4>Method <code>new()</code></h4>
+
+
+
+<h5>Usage</h5>
+
+<div class="r"><pre>CohortSubsetDefinition$new(definition = NULL)</pre></div>
+
+
+
+<h5>Arguments</h5>
+
+<div class="arguments">
+
+<dl>
+<dt><code>definition</code></dt><dd><p>json or list representation of object
+to List</p>
+</dd>
+</dl>
+
+</div>
+
+
+<hr>
+<a id="method-CohortSubsetDefinition-toList"></a>
+
+
+
+<h4>Method <code>toList()</code></h4>
+
+<p>List representation of object
+to JSON
+</p>
+
+
+<h5>Usage</h5>
+
+<div class="r"><pre>CohortSubsetDefinition$toList()</pre></div>
+
+
+<hr>
+<a id="method-CohortSubsetDefinition-toJSON"></a>
+
+
+
+<h4>Method <code>toJSON()</code></h4>
+
+<p>json serialized representation of object
+add Subset Operator
+</p>
+
+
+<h5>Usage</h5>
+
+<div class="r"><pre>CohortSubsetDefinition$toJSON()</pre></div>
+
+
+<hr>
+<a id="method-CohortSubsetDefinition-addSubsetOperator"></a>
+
+
+
+<h4>Method <code>addSubsetOperator()</code></h4>
+
+<p>add subset to class - checks if equivalent id is present
+Will throw an error if a matching ID is found but reference object is different
+</p>
+
+
+<h5>Usage</h5>
+
+<div class="r"><pre>CohortSubsetDefinition$addSubsetOperator(subsetOperator)</pre></div>
+
+
+
+<h5>Arguments</h5>
+
+<div class="arguments">
+
+<dl>
+<dt><code>subsetOperator</code></dt><dd><p>a SubsetOperator instance</p>
+</dd>
+<dt><code>overwrite</code></dt><dd><p>if a subset operator of the same ID is present, replace it with a new definition
+get query for a given target output pair</p>
+</dd>
+</dl>
+
+</div>
+
+
+<hr>
+<a id="method-CohortSubsetDefinition-getSubsetQuery"></a>
+
+
+
+<h4>Method <code>getSubsetQuery()</code></h4>
+
+<p>Returns vector of join, logic, having statements returned by subset operations
+</p>
+
+
+<h5>Usage</h5>
+
+<div class="r"><pre>CohortSubsetDefinition$getSubsetQuery(targetOutputPair)</pre></div>
+
+
+
+<h5>Arguments</h5>
+
+<div class="arguments">
+
+<dl>
+<dt><code>targetOutputPair</code></dt><dd><p>Target output pair
+Get name of an output cohort</p>
+</dd>
+</dl>
+
+</div>
+
+
+<hr>
+<a id="method-CohortSubsetDefinition-getSubsetCohortName"></a>
+
+
+
+<h4>Method <code>getSubsetCohortName()</code></h4>
+
+
+
+<h5>Usage</h5>
+
+<div class="r"><pre>CohortSubsetDefinition$getSubsetCohortName(
+  cohortDefinitionSet,
+  targetOutputPair
+)</pre></div>
+
+
+
+<h5>Arguments</h5>
+
+<div class="arguments">
+
+<dl>
+<dt><code>cohortDefinitionSet</code></dt><dd><p>Cohort definition set containing base names</p>
+</dd>
+<dt><code>targetOutputPair</code></dt><dd><p>Target output pair
+Set the targetOutputPairs to be added to a cohort definition set</p>
+</dd>
+</dl>
+
+</div>
+
+
+<hr>
+<a id="method-CohortSubsetDefinition-setTargetOutputPairs"></a>
+
+
+
+<h4>Method <code>setTargetOutputPairs()</code></h4>
+
+
+
+<h5>Usage</h5>
+
+<div class="r"><pre>CohortSubsetDefinition$setTargetOutputPairs(targetIds)</pre></div>
+
+
+
+<h5>Arguments</h5>
+
+<div class="arguments">
+
+<dl>
+<dt><code>targetIds</code></dt><dd><p>list of cohort ids to apply subsetting operations to
+Get json file name for subset definition in folder</p>
+</dd>
+</dl>
+
+</div>
+
+
+<hr>
+<a id="method-CohortSubsetDefinition-getJsonFileName"></a>
+
+
+
+<h4>Method <code>getJsonFileName()</code></h4>
+
+
+
+<h5>Usage</h5>
+
+<div class="r"><pre>CohortSubsetDefinition$getJsonFileName(
+  subsetJsonFolder = "inst/cohort_subset_definitions/"
+)</pre></div>
+
+
+
+<h5>Arguments</h5>
+
+<div class="arguments">
+
+<dl>
+<dt><code>subsetJsonFolder</code></dt><dd><p>path to folder to place file</p>
+</dd>
+</dl>
+
+</div>
+
+
+<hr>
+<a id="method-CohortSubsetDefinition-clone"></a>
+
+
+
+<h4>Method <code>clone()</code></h4>
+
+<p>The objects of this class are cloneable with this method.
+</p>
+
+
+<h5>Usage</h5>
+
+<div class="r"><pre>CohortSubsetDefinition$clone(deep = FALSE)</pre></div>
+
+
+
+<h5>Arguments</h5>
+
+<div class="arguments">
+
+<dl>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p>
+</dd>
+</dl>
+
+</div>
+
+
+
+<hr /><div style="text-align: center;">[Package <em>CohortGenerator</em> version 0.8.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

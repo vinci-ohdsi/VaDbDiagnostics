@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Handles Spark Inserts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for sparkHandleInsert {SqlRender}"><tr><td>sparkHandleInsert {SqlRender}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Handles Spark Inserts</h2>
+
+<h3>Description</h3>
+
+<p>This function is for Spark connections only,
+it handles insert commands, as Spark cannot handle inserts with aliased or subset columns.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+sparkHandleInsert(sql, connection)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sql</code></td>
+<td>
+<p>The SQL to be translated.</p>
+</td></tr>
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>The connection to the database server.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A sql string with INSERT command modified to contain the full column list, padded with NULLS as needed.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>SqlRender</em> version 1.13.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

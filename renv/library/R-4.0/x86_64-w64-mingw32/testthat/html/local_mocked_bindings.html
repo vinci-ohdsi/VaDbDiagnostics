@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Mocking tools</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for local_mocked_bindings {testthat}"><tr><td>local_mocked_bindings {testthat}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Mocking tools</h2>
+
+<h3>Description</h3>
+
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="../help/figures/lifecycle-experimental.svg" alt='[Experimental]' /></a>
+</p>
+<p>These functions represent a second attempt at bringing mocking to testthat,
+incorporating what we've learned from the mockr, mockery, and mockthat package.
+</p>
+<p><code>with_mocked_bindings()</code> and <code>local_mocked_bindings()</code> work by temporarily
+changing variable bindings in the namespace of namespace <code>.package</code>.
+Generally, it's only safe to mock packages that you own. If you mock other
+packages, we recommend using <code>skip_on_cran()</code> to avoid CRAN failures if the
+implementation changes.
+</p>
+<p>These functions do not currently affect registered S3 methods.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+local_mocked_bindings(..., .package = NULL, .env = caller_env())
+
+with_mocked_bindings(code, ..., .package = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Name-value pairs providing functions to mock.</p>
+</td></tr>
+<tr valign="top"><td><code>.package</code></td>
+<td>
+<p>The name of the package where mocked functions should be
+inserted. Generally, you should not need to supply this as it will be
+automatically detected when whole package tests are run or when there's
+one package under active development (i.e. loaded with
+<code><a href="../../pkgload/html/load_all.html">pkgload::load_all()</a></code>).</p>
+</td></tr>
+<tr valign="top"><td><code>.env</code></td>
+<td>
+<p>Environment that defines effect scope. For expert use only.</p>
+</td></tr>
+<tr valign="top"><td><code>code</code></td>
+<td>
+<p>Code to execute with specified bindings.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>testthat</em> version 3.1.7 <a href="00Index.html">Index</a>]</div>
+</body></html>

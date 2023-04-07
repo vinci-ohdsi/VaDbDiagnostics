@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a Trie</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for trie {triebeard}"><tr><td>trie {triebeard}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a Trie</h2>
+
+<h3>Description</h3>
+
+<p><code>create_trie</code> creates a trie (a key-value store optimised
+for matching) out of a provided character vector of keys, and a numeric,
+character, logical or integer vector of values (both the same length).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+trie(keys, values)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>keys</code></td>
+<td>
+<p>a character vector containing the keys for the trie.</p>
+</td></tr>
+<tr valign="top"><td><code>values</code></td>
+<td>
+<p>an atomic vector of any type, containing the values to pair with
+<code>keys</code>. Must be the same length as <code>keys</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a 'trie' object.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="alter.html">trie_add</a></code> and <code><a href="alter.html">trie_remove</a></code> for adding to and removing
+from tries after their creation, and <code><a href="longest_match.html">longest_match</a></code> and other match functions
+for matching values against the keys of a created trie.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# An integer trie
+int_trie &lt;- trie(keys = "foo", values = 1)
+
+# A string trie
+str_trie &lt;- trie(keys = "foo", values = "bar")
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>triebeard</em> version 0.4.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

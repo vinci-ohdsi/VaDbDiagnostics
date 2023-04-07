@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Add or remove trie entries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for alter {triebeard}"><tr><td>alter {triebeard}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Add or remove trie entries</h2>
+
+<h3>Description</h3>
+
+<p><code>trie_add</code> and <code>trie_remove</code> allow you to
+add or remove entries from tries, respectively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+trie_add(trie, keys, values)
+
+trie_remove(trie, keys)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>trie</code></td>
+<td>
+<p>a trie object created with <code><a href="trie.html">trie</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>keys</code></td>
+<td>
+<p>a character vector containing the keys of the entries to
+add (or remove). Entries with NA keys will not be added.</p>
+</td></tr>
+<tr valign="top"><td><code>values</code></td>
+<td>
+<p>an atomic vector, matching the type of the trie, containing
+the values of the entries to add. Entries with NA values will not be added.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>nothing; the trie is modified in-place
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="trie.html">trie</a></code> for creating tries in the first place.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+trie &lt;- trie("foo", "bar")
+length(trie)
+
+trie_add(trie, "baz", "qux")
+length(trie)
+
+trie_remove(trie, "baz")
+length(trie)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>triebeard</em> version 0.4.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

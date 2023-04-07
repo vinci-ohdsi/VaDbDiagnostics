@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get cohort subset definitions from a cohort definition set</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getSubsetDefinitions {CohortGenerator}"><tr><td>getSubsetDefinitions {CohortGenerator}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get cohort subset definitions from a cohort definition set</h2>
+
+<h3>Description</h3>
+
+<p>Get the subset definitions (if any) applied to a cohort definition set.
+Note that these subset definitions are a copy of those applied to the cohort set.
+Modifying these definitions will not modify the base cohort set.
+To apply a modification, reapply the subset definition to the cohort definition set data.frame with
+<code>addCohortSubsetDefinition</code> with 'overwriteExisting = TRUE'.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getSubsetDefinitions(cohortDefinitionSet)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cohortDefinitionSet</code></td>
+<td>
+<p>A valid cohortDefinitionSet</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>list of cohort subset definitions or empty list
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortGenerator</em> version 0.8.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

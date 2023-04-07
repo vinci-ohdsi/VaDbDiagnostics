@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: A definition of subset functions to be applied to a set of...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createCohortSubset {CohortGenerator}"><tr><td>createCohortSubset {CohortGenerator}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>A definition of subset functions to be applied to a set of cohorts</h2>
+
+<h3>Description</h3>
+
+<p>A definition of subset functions to be applied to a set of cohorts
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createCohortSubset(
+  name = NULL,
+  cohortIds,
+  cohortCombinationOperator,
+  negate,
+  startWindow,
+  endWindow
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>optional name of operator</p>
+</td></tr>
+<tr valign="top"><td><code>cohortIds</code></td>
+<td>
+<p>integer - set of cohort ids to subset to</p>
+</td></tr>
+<tr valign="top"><td><code>cohortCombinationOperator</code></td>
+<td>
+<p>&quot;any&quot; or &quot;all&quot; if using more than one cohort id allow a subject to be in any cohort
+or require that they are in all cohorts in specified windows</p>
+</td></tr>
+<tr valign="top"><td><code>negate</code></td>
+<td>
+<p>The opposite of this definition - include patients who do NOT meet the specified criteria (NOT YET IMPLEMENTED)</p>
+</td></tr>
+<tr valign="top"><td><code>startWindow</code></td>
+<td>
+<p>A SubsetCohortWindow that patients must fall inside (see createSubsetCohortWindow)</p>
+</td></tr>
+<tr valign="top"><td><code>endWindow</code></td>
+<td>
+<p>A SubsetCohortWindow that patients must fall inside (see createSubsetCohortWindow)</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a CohortSubsetOperator instance
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortGenerator</em> version 0.8.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

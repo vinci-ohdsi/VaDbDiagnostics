@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Internal function to put the results of each quality check...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for .recordResult {DataQualityDashboard}"><tr><td>.recordResult {DataQualityDashboard}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Internal function to put the results of each quality check into a dataframe.</h2>
+
+<h3>Description</h3>
+
+<p>Internal function to put the results of each quality check into a dataframe.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+.recordResult(
+  result = NULL,
+  check,
+  checkDescription,
+  sql,
+  executionTime = NA,
+  warning = NA,
+  error = NA
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>result</code></td>
+<td>
+<p>The result of the data quality check</p>
+</td></tr>
+<tr valign="top"><td><code>check</code></td>
+<td>
+<p>The data quality check</p>
+</td></tr>
+<tr valign="top"><td><code>checkDescription</code></td>
+<td>
+<p>The description of the data quality check</p>
+</td></tr>
+<tr valign="top"><td><code>sql</code></td>
+<td>
+<p>The fully qualified sql for the data quality check</p>
+</td></tr>
+<tr valign="top"><td><code>executionTime</code></td>
+<td>
+<p>The total time it took to execute the data quality check</p>
+</td></tr>
+<tr valign="top"><td><code>warning</code></td>
+<td>
+<p>Any warnings returned from the server</p>
+</td></tr>
+<tr valign="top"><td><code>error</code></td>
+<td>
+<p>Any errors returned from the server</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>DataQualityDashboard</em> version 2.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>
